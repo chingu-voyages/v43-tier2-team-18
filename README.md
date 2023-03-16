@@ -26,4 +26,4 @@ Before making any changes to the codebase, please create a new branch with a des
 
 ## Conclusion
 
-We hope everyone finds this project exciting and engaging. If you have any questions or concerns, please reach out to the project lead or a team member for assistance. Happy coding! Testing
+We hope everyone finds this project exciting and engaging. If you have any questions or concerns, please reach out to the project lead or a team member for assistance. Happy coding!
