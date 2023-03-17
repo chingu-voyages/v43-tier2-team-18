@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
 
 // ICONS
@@ -9,6 +9,24 @@ import { FiMenu } from "react-icons/fi";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState("");
+
+  const element = document.documentElement;
+
+  useEffect(() => {
+    switch (isActive) {
+      case "moon":
+        element.classList.add("dark");
+        localStorage.setItem("isActive", "dark");
+        break;
+      case "sun":
+        element.classList.remove("dark");
+        localStorage.setItem("isActive", "light");
+        break;
+      default:
+        localStorage.removeItem("isActive");
+        break;
+    }
+  }, [isActive]);
 
   return (
     <nav className="border-b px-6 md:px-12 lg:px-24 py-3 text-slate-800">
