@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar } from "./components";
 function App() {
   return (
-    <div className="bg-white font-Poppins">
+    <div className="relative bg-white font-Poppins">
       <div>
         <Navbar />
       </div>
