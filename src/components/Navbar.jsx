@@ -6,7 +6,9 @@ const Navbar = () => {
     <nav className="border-b px-24 py-3 text-slate-800">
       <div className="flex justify-between items-center">
         <div>
-          <img src={logo} alt="logo" className="w-24" />
+          <a href="/">
+            <img src={logo} alt="logo" className="w-24" />
+          </a>
         </div>
         <div className="flex gap-8 text-sm">
           <a
@@ -35,7 +37,7 @@ const Navbar = () => {
           </a>
           <a
             href="#"
-            className="py-2 px-5 text-gray-100 bg-[#486284] rounded-3xl"
+            className="py-2 px-5 text-gray-100 bg-[#486284] rounded-3xl hover:scale-105 transition duration-100 ease-in-out"
           >
             Signup
           </a>
