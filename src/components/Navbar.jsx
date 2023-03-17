@@ -1,5 +1,4 @@
 import { useState } from "react";
-import React from "react";
 import logo from "../assets/logo.png";
 
 // ICONS
@@ -87,6 +86,7 @@ const Navbar = () => {
         </div>
 
         {/*--- MOBILE VIEW --- */}
+
         <div className="flex md:hidden gap-3 items-center">
           {/* TOGGLE THEME MODE FOR MOBILE VIEW*/}
           <div className="flex gap-3 bg-[#486284] border-2 border-[#325078]  px-2 py-1 rounded-full text-white">
