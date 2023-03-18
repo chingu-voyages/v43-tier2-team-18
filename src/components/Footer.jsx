@@ -10,7 +10,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="md:text-right lg:text-center">
-        <span className="flex items-center text-sm">
+        <span className="flex items-center text-sm float-right">
           Made with&nbsp;
           <span className="text-red-600 text-2xl">
             <AiFillHeart />
