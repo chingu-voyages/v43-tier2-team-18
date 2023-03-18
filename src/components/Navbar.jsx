@@ -11,6 +11,22 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState("");
 
   const element = document.documentElement;
+  const darkQuery = window.matchMedia("(prefers-color-scheme: light)");
+
+  // BUILD PERSISTENCE USING LOCAL STORAGE
+
+  function onWindowMatch() {
+    if (
+      localStorage.isActive === "dark" ||
+      (!("isActive" in localStorage) && darkQuery.matches)
+    ) {
+      element.classList.add("dark");
+    } else {
+      element.classList.remove("dark");
+    }
+  }
+
+  onWindowMatch();
 
   useEffect(() => {
     switch (isActive) {
