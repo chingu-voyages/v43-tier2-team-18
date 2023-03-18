@@ -29,7 +29,7 @@ const Navbar = () => {
   }, [isActive]);
 
   return (
-    <nav className="border-b px-6 md:px-12 lg:px-24 py-3 text-slate-800">
+    <nav className="border-b px-6 md:px-12 lg:px-24 py-3 text-slate-800 dark:text-gray-100">
       <div className="flex justify-between items-center">
         <div>
           <a href="/">
@@ -39,23 +39,23 @@ const Navbar = () => {
         <div
           className={`${
             isOpen ? "grid" : "hidden"
-          } absolute top-20 gap-3 md:flex md:static md:gap-8 text-sm`}
+          } absolute top-20 left-0 gap-3 md:flex w-full md:w-fit md:static md:gap-8 text-sm  dark:bg-black dark:top-16 dark:pt-5 dark:md:pt-0`}
         >
           <a
             href="#"
-            className="border-l-2 border-l-white pl-2 md:pl-0 hover:border-l-blue-600 md:border-l-0 border-b-2 border-b-white hover:border-b-2 hover:text-blue-600 md:hover:border-b-blue-600 py-2 transition duration-150 ease-in-out"
+            className="border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:ml-0 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
             Home
           </a>
           <a
             href="#"
-            className="border-l-2 border-l-white pl-2 md:pl-0 hover:border-l-blue-600 md:border-l-0 border-b-2 border-b-white hover:border-b-2 hover:text-blue-600 md:hover:border-b-blue-600 py-2 transition duration-150 ease-in-out"
+            className="border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
             Explore
           </a>
           <a
             href="#"
-            className="border-l-2 border-l-white pl-2 md:pl-0 hover:border-l-blue-600 md:border-l-0 border-b-2 border-b-white hover:border-b-2 hover:text-blue-600 md:hover:border-b-blue-600 py-2 transition duration-150 ease-in-out"
+            className="border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
             Contact
           </a>
@@ -87,17 +87,17 @@ const Navbar = () => {
         <div
           className={`${
             isOpen ? "grid" : "hidden"
-          } gap-3 absolute top-[229px] md:flex md:static items-center md:gap-2 text-sm`}
+          } gap-3 absolute top-[216px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black`}
         >
           <a
             href="#"
-            className="border-l-2 border-l-white pl-2 md:pl-0 hover:border-l-blue-600 md:border-l-0 border-b-2 border-b-white hover:border-b-2 hover:text-blue-600 md:hover:border-b-blue-600 py-2 transition duration-150 ease-in-out"
+            className="border-l-2 border-l-transparent px-3 ml-3 py-2 md:py-0 md:hover:py-2 md:ml-0 pt-5 md:pt-0 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600  transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
             Login
           </a>
           <a
             href="#"
-            className="px-4 py-2 md:px-5 text-gray-100 bg-[#486284] rounded-3xl hover:translate-y-1 md:hover:translate-y-0 md:hover:scale-105 transition duration-50 ease-in-out"
+            className="px-4 py-2 md:px-5 text-gray-100 bg-[#486284] rounded-3xl hover:translate-y-1 md:hover:translate-y-0 md:hover:scale-105 transition duration-50 ease-in-out w-24 ml-5 md:ml-0 text-center mb-5 md:mb-0"
           >
             Signup
           </a>
