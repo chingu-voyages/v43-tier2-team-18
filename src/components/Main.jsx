@@ -1,5 +1,5 @@
 import React from "react";
-import { HowItWorks } from ".";
+import { HowItWorks, CallToAction } from ".";
 
 const Main = () => {
   return (
@@ -10,6 +10,7 @@ const Main = () => {
         - CALL TO ACTION,
         ...and others (if any) */}
       <HowItWorks />
+      <CallToAction />
     </div>
   );
 };
