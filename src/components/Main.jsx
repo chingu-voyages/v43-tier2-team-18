@@ -1,4 +1,5 @@
 import React from "react";
+import { HowItWorks } from ".";
 
 const Main = () => {
   return (
@@ -8,6 +9,7 @@ const Main = () => {
         - HOW IT WORKS,
         - CALL TO ACTION,
         ...and others (if any) */}
+      <HowItWorks />
     </div>
   );
 };

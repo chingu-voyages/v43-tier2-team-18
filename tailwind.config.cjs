@@ -5,7 +5,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Poppins: ["Poppins"]
+        Poppins: ["Poppins"],
+      },
+      screens: {
+        xs: "270px",
       },
     },
   },

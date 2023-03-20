@@ -1,11 +1,13 @@
 import React from "react";
-import HowItWorks from "./components/HowItWorks";
+import { Layout, Main } from "./components";
 
 function App() {
   return (
     <div className="">
       <div className="text-blue-600 text-center font-bold text-xl">
-        <HowItWorks />
+        <Layout>
+          <Main />
+        </Layout>
       </div>
     </div>
   );
