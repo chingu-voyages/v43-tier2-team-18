@@ -1,11 +1,12 @@
 import React from "react";
-import { Layout, Main } from "./components";
+import HowItWorks from "./components/HowItWorks";
+
 function App() {
   return (
-    <div className="relative bg-white font-Poppins dark:bg-black dark:text-gray-100">
-      <Layout>
-        <Main />
-      </Layout>
+    <div className="">
+      <div className="text-blue-600 text-center font-bold text-xl">
+        <HowItWorks />
+      </div>
     </div>
   );
 }
