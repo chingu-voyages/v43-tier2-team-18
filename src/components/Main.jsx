@@ -1,5 +1,6 @@
 import React from "react";
 import { HowItWorks, CallToAction } from ".";
+import Header from "./Header";
 
 const Main = () => {
   return (
@@ -9,6 +10,7 @@ const Main = () => {
         - HOW IT WORKS,
         - CALL TO ACTION,
         ...and others (if any) */}
+      <Header />
       <HowItWorks />
       <CallToAction />
     </div>
