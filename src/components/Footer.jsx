@@ -3,7 +3,11 @@ import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
+
+   
+
     <footer className="grid gap-2 items-center md:grid-cols-2 lg:grid-cols-3 px-6 py-3 md:px-12 lg:px-24 py-3 bg-gray-100 dark:bg-black dark:text-gray-100">
+
       <div>
         <a href="/">
           <img src={logo} alt="logo" className="w-24 mb-3" />
@@ -29,7 +33,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-  
 };
 
 export default Footer;

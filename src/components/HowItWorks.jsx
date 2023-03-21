@@ -5,7 +5,9 @@ const features = [
     title: "Explore",
     text: "Embark on an adventure and uncover the world's hidden gems with our expertly curated travel guides. From breathtaking landscapes to vibrant cultures, explore the wonders of the world like never before.",
     img: "https://images.unsplash.com/photo-1495756650324-e45118cb3e35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODN8fGFkdmVudHVyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60",
+
 },
+
   {
     title: "Embrace",
     text: "Immerse yourself in new cultures, try exotic cuisine, and embrace the unknown with our personalized travel experiences. Discover new perspectives and make unforgettable memories that will last a lifetime.",
@@ -42,7 +44,9 @@ function HowItWorks() {
           </div>
           <img
             className="w-full rounded-xl md:w-1/2 lg:w-1/3  lg:h-72 lg:object-cover xl:h-80"
+
             src={feature.img}  
+
             alt=""
           />
         </div>
