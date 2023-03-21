@@ -45,7 +45,7 @@ const Navbar = () => {
   }, [isActive]);
 
   return (
-    <nav className="border-b px-6 md:px-12 lg:px-24 py-3 text-slate-800 dark:text-gray-100 dark:bg-black">
+    <nav className="border-b px-6 md:px-12 lg:px-24 py-3 text-slate-800 dark:text-gray-100 dark:bg-black dark:border-b-slate-600">
       <div className="flex justify-between items-center">
         <div>
           <a href="/">
