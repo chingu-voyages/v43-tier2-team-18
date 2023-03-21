@@ -1,8 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Poppins: ["Poppins"],
+      },
+      screens: {
+        xs: "270px",
+      },
+      backgroundImage: {
+        'hotAir': "url('./src/assets/hotAir.jpg')"
+      }
+    },
   },
   plugins: [],
 };
