@@ -9,8 +9,8 @@ import {
 
 const TabsSection = () => {
   return (
-    <section className="grid grid-cols-3 px-6 md:px-12 lg:px-24">
-      <div className="col-span-2 text-left text-gray-800">
+    <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 px-6 md:px-12 lg:px-24 py-10">
+      <div className="lg:col-span-2 text-left text-gray-800">
         <Tabs selectedTabClassName="bg-gray-200 rounded-t">
           <TabList>
             <Tab>Detail</Tab>
@@ -18,7 +18,7 @@ const TabsSection = () => {
             <Tab disabled>Weather</Tab>
           </TabList>
 
-          <TabPanel className="font-normal text-lg pb-5">
+          <TabPanel className="font-normal text-lg">
             <h5 className="py-2 font-semibold text-2xl">Tour Detail:</h5>
             <p>
               Switzerland is a beautiful country in Europe that is famous for
@@ -129,7 +129,7 @@ const TabsSection = () => {
           </TabPanel>
         </Tabs>
       </div>
-      <div className="col-span-1"></div>
+      <div className="col-span-1 bg-gray-100 rounded-lg"></div>
     </section>
   );
 };
