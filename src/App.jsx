@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Main } from "./components";
-import DestinationInfoHero from "./components/DestinationInfoHero";
+import DestinationInfo from "./components/DestinationInfo";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <div className="text-blue-600 text-center font-bold text-xl">
         <Layout>
           {/* <Main /> */}
-          <DestinationInfoHero />
+          <DestinationInfo />
         </Layout>
       </div>
     </div>
