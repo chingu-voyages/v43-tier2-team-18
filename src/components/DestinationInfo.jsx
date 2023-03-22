@@ -1,8 +1,9 @@
-import { TabsSection } from "../components";
+import { SwiperHero, TabsSection } from "../components";
 
 const DestinationInfo = () => {
   return (
     <div>
+      <SwiperHero />
       <TabsSection />
     </div>
   );
