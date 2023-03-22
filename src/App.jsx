@@ -6,13 +6,9 @@ function App() {
   return (
     <div className="">
       <div className="text-blue-600 text-center font-bold text-xl">
-        {/* <Layout>
-          <Main />
-        </Layout> */}
         <Layout>
-          <DestinationInfoHero />
+          <Main />
         </Layout>
-      </div>
     </div>
   );
 }

@@ -6,6 +6,7 @@ const features = [
     text: "Embark on an adventure and uncover the world's hidden gems with our expertly curated travel guides. From breathtaking landscapes to vibrant cultures, explore the wonders of the world like never before.",
     img: "https://images.unsplash.com/photo-1495756650324-e45118cb3e35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODN8fGFkdmVudHVyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60",
   },
+
   {
     title: "Embrace",
     text: "Immerse yourself in new cultures, try exotic cuisine, and embrace the unknown with our personalized travel experiences. Discover new perspectives and make unforgettable memories that will last a lifetime.",
@@ -21,8 +22,8 @@ const features = [
 
 function HowItWorks() {
   return (
-    <div className="p-8 pb-0">
-      <h2 className="lg:text-5xl xs:text-4xl font-bold text-gray-900  md:mb-16">
+    <div className="p-8 dark:bg-black">
+      <h2 className="lg:text-5xl xs:text-4xl font-bold text-gray-900 md:mb-16  dark:text-white">
         How it Works
       </h2>
       {features.map((feature) => (
@@ -30,13 +31,13 @@ function HowItWorks() {
           key={feature.title}
           className={`text-gray-800 my-8 md:mb-20 md:flex ${
             feature.flexDir ? feature.flexDir : "flex-row"
-          } items-center justify-center gap-12`}
+          } items-center justify-center gap-12 dark:text-white`}
         >
           <div className="text-left lg:w-1/3">
             <h3 className="xs:text-center sm:text-3xl md:text-left lg:text-4xl font-semibold mb-8">
               {feature.title}
             </h3>
-            <p className="xs:mb-8 text-lg lg:text-xl font-light text-gray-600 ">
+            <p className="xs:mb-8 text-lg lg:text-xl font-light text-gray-600 dark:text-white">
               {feature.text}
             </p>
           </div>
