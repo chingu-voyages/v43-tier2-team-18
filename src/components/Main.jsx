@@ -1,5 +1,5 @@
 import React from "react";
-import { HowItWorks, CallToAction } from ".";
+import { HowItWorks, CallToAction, DestinationInfo } from ".";
 import Header from "./Header";
 
 const Main = () => {
@@ -11,8 +11,9 @@ const Main = () => {
         - CALL TO ACTION,
         ...and others (if any) */}
       <Header />
-      <HowItWorks />
-      <CallToAction />
+      {/* <HowItWorks /> */}
+      {/* <CallToAction /> */}
+      <DestinationInfo />
     </div>
   );
 };
