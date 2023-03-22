@@ -20,7 +20,7 @@ const heroImages = [
   },
 ];
 
-function DestinationInfoHero() {
+function SwiperHero() {
   return (
     <Swiper
       spaceBetween={100}
@@ -37,8 +37,8 @@ function DestinationInfoHero() {
         <SwiperSlide key={obj.text}>
           <div className="relative w-full h-screen">
             <img className="h-screen w-full object-cover" src={obj.img} />
-            <div className="absolute inset-0 text-white flex justify-center items-center bg-gray-500 bg-opacity-30 font-bold z-index-10 text-6xl md:text-7xl xl:text-9xl">
-              <h1 className="p-8 animate-ping">{obj.text}</h1>
+            <div className="absolute inset-0 text-white flex justify-center items-center bg-gray-500 bg-opacity-30 font-bold z-index-10 text-7xl md:text-9xl">
+              <h1 className="p-8">{obj.text}</h1>
             </div>
           </div>
         </SwiperSlide>
@@ -47,4 +47,4 @@ function DestinationInfoHero() {
   );
 }
 
-export default DestinationInfoHero;
+export default SwiperHero;
