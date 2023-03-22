@@ -11,8 +11,8 @@ module.exports = {
         xs: "270px",
       },
       backgroundImage: {
-        'hotAir': "url('./src/assets/hotAir.jpg')"
-      }
+        hotAir: "url('./src/assets/hotAir.jpg')",
+      },
     },
   },
   plugins: [],
