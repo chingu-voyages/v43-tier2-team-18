@@ -7,8 +7,10 @@ function App() {
     <div className="">
       <div className="text-blue-600 text-center font-bold text-xl">
         <Layout>
-          <Main />
+          {/* <Main /> */}
+          <DestinationInfoHero />
         </Layout>
+      </div>
     </div>
   );
 }

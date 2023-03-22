@@ -5,3 +5,4 @@ export { default as Main } from "./Main";
 export { default as HowItWorks } from "./HowItWorks";
 export { default as CallToAction } from "./CallToAction";
 export { default as DestinationInfoHero } from "./DestinationInfoHero";
+export { default as SwiperHero } from "./SwiperHero";
