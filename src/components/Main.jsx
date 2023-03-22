@@ -3,7 +3,7 @@ import { HowItWorks } from ".";
 
 const Main = () => {
   return (
-    <div className="w-full h-screen">
+    <div className="">
       {/* ----EVERY SECTION ON THE PAGE GOES IN THIS FILE----
         - HEADER,
         - HOW IT WORKS,
