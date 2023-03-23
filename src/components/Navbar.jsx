@@ -30,19 +30,17 @@ const Navbar = () => {
   onWindowMatch();
 
   useEffect(() => {
-    switch (isActive) {
-      case "moon":
-        element.classList.add("dark");
-        localStorage.setItem("isActive", "dark");
-        break;
-      case "sun":
-        element.classList.remove("dark");
-        localStorage.setItem("isActive", "light");
-        break;
-      default:
-        localStorage.removeItem("isActive");
-        break;
+    if (isActive === 'moon') {
+      element.classList.add("dark");
+      localStorage.setItem("isActive", "dark");
     }
+
+    if (isActive === 'sun') {
+      element.classList.remove("dark");
+      localStorage.setItem("isActive", "light");
+    }
+
+    if (!isActive) localStorage.removeItem('isActive')
   }, [isActive]);
 
   return (
