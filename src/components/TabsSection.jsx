@@ -28,33 +28,33 @@ const TabsSection = () => {
               explore its beauty and history in depth.
             </p>
 
-            <h5 className="py-2 font-semibold text-2xl">
+            <h5 className="py-2 mt-6 font-semibold text-2xl">
               Highlights of Switerland tour:
             </h5>
             <ul className="list-disc">
               {highlights.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li className='py-2' key={index}>{item}</li>
               ))}
             </ul>
 
-            <h5 className="py-2 font-semibold text-2xl">Price Includes:</h5>
+            <h5 className="py-2 mt-6 font-semibold text-2xl">Price Includes:</h5>
             <ul className="list-disc">
               {priceIncludes.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li className='py-2' key={index}>{item}</li>
               ))}
             </ul>
 
-            <h5 className="py-2 font-semibold text-2xl">Price Excludes:</h5>
+            <h5 className="py-2 mt-6 font-semibold text-2xl">Price Excludes:</h5>
             <ul className="list-disc">
               {priceExcludes.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li className='py-2' key={index}>{item}</li>
               ))}
             </ul>
 
-            <h5 className="py-2 font-semibold text-2xl">Complimentaries</h5>
+            <h5 className="py-2 mt-6 font-semibold text-2xl">Complimentaries</h5>
             <ul className="list-disc">
               {complimentaries.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li className='py-2' key={index}>{item}</li>
               ))}
             </ul>
           </TabPanel>
