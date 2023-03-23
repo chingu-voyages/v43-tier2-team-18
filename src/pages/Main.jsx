@@ -1,6 +1,6 @@
 import React from "react";
-import { HowItWorks, CallToAction, DestinationInfo } from ".";
-import Header from "./Header";
+import { HowItWorks, CallToAction, DestinationInfo } from "../components";
+import Header from "../components/Header";
 
 const Main = () => {
   return (
@@ -11,9 +11,9 @@ const Main = () => {
         - CALL TO ACTION,
         ...and others (if any) */}
       <Header />
-      {/* <HowItWorks /> */}
-      {/* <CallToAction /> */}
-      <DestinationInfo />
+      <HowItWorks />
+      <CallToAction />
+      {/* <DestinationInfo /> */}
     </div>
   );
 };
