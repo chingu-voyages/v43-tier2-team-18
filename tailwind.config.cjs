@@ -12,6 +12,7 @@ module.exports = {
       },
       backgroundImage: {
         hotAir: "url('./src/assets/hotAir.jpg')",
+        heroBg: "url('/src/assets/heroBg.jpg')",
       },
     },
   },
