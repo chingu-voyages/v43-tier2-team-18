@@ -1,16 +1,17 @@
 import React from "react";
-import { Layout, Main } from "./components";
-import DestinationInfo from "./components/DestinationInfo";
+import { Routes, Route } from "react-router-dom";
+import { LayoutRoute } from "./components";
+import { Main, DestinationInfo } from "./pages";
 
 function App() {
   return (
     <div className="">
-      <div className="text-blue-600 text-center font-bold text-xl">
-        <Layout>
-          {/* <Main /> */}
-          <DestinationInfo />
-        </Layout>
-      </div>
+      <Routes>
+        <Route path="/" element={<LayoutRoute />}>
+          <Route index element={<Main />} />
+          <Route path="destination" element={<DestinationInfo />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 // ICONS
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
@@ -46,27 +47,27 @@ const Navbar = () => {
     <nav className="border-b px-6 md:px-12 lg:px-24 py-3 text-slate-800 dark:text-gray-100 dark:bg-black dark:border-b-slate-600">
       <div className="flex justify-between items-center">
         <div>
-          <a href="/">
+          <Link to="/">
             <img src={logo} alt="logo" className="w-20 md:w-24" />
-          </a>
+          </Link>
         </div>
         <div
           className={`${
             isOpen ? "grid" : "hidden"
           } z-50 bg-white absolute top-20 left-0 gap-3 md:flex w-full md:w-fit md:static md:gap-8 text-sm  dark:bg-black dark:top-16 dark:pt-5 dark:md:pt-0`}
         >
-          <a
-            href="#"
+          <Link
+            to="/"
             className="border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:ml-0 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
             Home
-          </a>
-          <a
-            href="/explore"
+          </Link>
+          <Link
+            to="/destination"
             className="border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
             Explore
-          </a>
+          </Link>
           <a
             href="#"
             className="border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300"
