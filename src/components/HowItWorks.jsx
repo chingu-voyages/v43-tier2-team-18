@@ -23,7 +23,7 @@ const features = [
 function HowItWorks() {
   return (
     <div className="p-8 dark:bg-black">
-      <h2 className="lg:text-5xl xs:text-4xl font-bold text-gray-900 md:mb-16  dark:text-white">
+      <h2 className="text-center lg:text-5xl xs:text-4xl font-bold text-gray-900 md:mb-16  dark:text-white">
         How it Works
       </h2>
       {features.map((feature) => (

@@ -7,5 +7,9 @@
 @layer components {
   .button {
     @apply text-center font-normal w-full text-base rounded-3xl py-3;
-  }
+  };
+  .text-shadow {
+    text-shadow: 2px 2px 50px rgba(0,0,0,0.6);
+  };
+  
 }
