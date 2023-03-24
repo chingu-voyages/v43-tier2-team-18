@@ -63,7 +63,7 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            to="destination"
+            to="/destination"
             className="border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
             Explore
