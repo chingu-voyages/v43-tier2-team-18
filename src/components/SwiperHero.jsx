@@ -35,10 +35,13 @@ function SwiperHero() {
     >
       {heroImages.map((obj) => (
         <SwiperSlide key={obj.text}>
-          <div className="relative w-full h-screen">
-            <img className="h-screen w-full object-cover" src={obj.img} />
-            <div className="absolute inset-0 text-white flex justify-center items-center bg-gray-500 bg-opacity-30 font-bold z-index-10 text-7xl md:text-9xl">
-              <h1 className="p-8">{obj.text}</h1>
+          <div className="w-full h-screen">
+            <img
+              className="min-h-screen w-full object-cover z-0"
+              src={obj.img}
+            />
+            <div className="absolute inset-0 text-white flex justify-center items-center bg-gray-500 bg-opacity-30 font-bold z-100 xs:text-5xl text-7xl md:text-9xl h-screen">
+              <h1 className="p-8 z-100">{obj.text}</h1>
             </div>
           </div>
         </SwiperSlide>
