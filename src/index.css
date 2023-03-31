@@ -4,6 +4,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ::-webkit-scrollbar{
+  width: 0.8em;
+}
+::-webkit-scrollbar-track{
+  background-color: #e5dfdf;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #bdb6b6;
+  border: 5px solid #e5dfdf;
+  border-radius: 20px;
+  margin: 3px;
+}
+@supports (scrollbar-color: #bdb6b6 #e5dfdf){
+  *{
+    scrollbar-color: #bdb6b6 #e5dfdf;
+    scrollbar-width: auto;
+  }
+} */
+
 @layer components {
   .button {
     @apply text-center font-normal w-full text-base rounded-3xl py-3;
@@ -12,4 +32,7 @@
     text-shadow: 2px 2px 50px rgba(0,0,0,0.6);
   };
   
+  .mask-image {
+    mask-image: linear-gradient(to top, white, black);
+  }
 }
