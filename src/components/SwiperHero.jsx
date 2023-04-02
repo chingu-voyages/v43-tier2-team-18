@@ -17,7 +17,9 @@ export const heroImages = [
 ];
 
 function SwiperHero() {
+
   return <Carousal data={heroImages} link={false} height={false} />;
+
 }
 
 export default SwiperHero;

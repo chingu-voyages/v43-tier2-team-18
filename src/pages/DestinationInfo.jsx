@@ -1,3 +1,4 @@
+
 import {
   Footer,
   Navbar,
@@ -5,6 +6,7 @@ import {
   TabsSection,
   PopularAttractions,
 } from "../components";
+
 
 const DestinationInfo = () => {
   return (
