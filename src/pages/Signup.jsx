@@ -127,7 +127,7 @@ const Signup = () => {
                 />
               </svg>
               <input
-                type="text"
+                type="email"
                 name="email"
                 onChange={handleEmailChange}
                 value={email}
@@ -161,7 +161,7 @@ const Signup = () => {
                 />
               </svg>
               <input
-                type="text"
+                type="password"
                 name="password"
                 onChange={handlePasswordChange}
                 value={password}
