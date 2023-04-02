@@ -11,6 +11,7 @@ const Login = () => {
   // incase of errors
   const [errEmail, setErrEmail] = useState(false);
   const [errPassword, setErrPassword] = useState(false);
+  const [errMessage, setErrMessage] = useState("");
 
   const demoEmail = "demo@demo.com";
   const demoPass = "demo123";
@@ -39,9 +40,15 @@ const Login = () => {
       setLoggedin(true);
       localStorage.clear();
       localStorage.setItem("user", email);
+      navigate("/welcome");
       setTimeout(() => {
-        navigate("/welcome");
+        alert(
+          "Congratulations! You're now logged in! Click 'ok' to be redirected to the travel-guide page"
+        );
+        navigate("/destination");
       }, 1000);
+    } else {
+      setErrMessage("Invalid Login Credentials!");
     }
   };
 
@@ -145,6 +152,9 @@ const Login = () => {
                 }
               />
             </div>
+            <p className="ml-2 text-red-500 text-sm animate-bounce">
+              {errMessage}
+            </p>
             <button
               type="submit"
               className="block w-full bg-[#486284] mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
