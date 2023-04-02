@@ -1,6 +1,56 @@
+import { useState } from "react";
 import { Navbar } from "../components";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // incase of errors
+  const [errName, setErrName] = useState(false);
+  const [errEmail, setErrEmail] = useState(false);
+  const [errPassword, setErrPassword] = useState(false);
+
+  const validateEmail = (email) => {
+    return (
+      String(email)
+        .toLowerCase()
+        // eslint-disable-next-line no-useless-escape
+        .match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+    );
+  };
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+    setErrName(false);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setErrEmail(false);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    setErrPassword(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name) {
+      setErrName(true);
+    }
+    if (!email) {
+      setErrEmail(true);
+    } else {
+      if (!validateEmail(email)) {
+        setErrEmail(true);
+      }
+    }
+    if (!password) {
+      setErrPassword(true);
+    }
+  };
   return (
     <>
       <Navbar />
@@ -20,15 +70,21 @@ const Signup = () => {
           <div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
         </div>
         <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
-          <form className="bg-white">
+          <form className="bg-white" onSubmit={handleSubmit}>
             <h1 className="text-gray-800 font-bold text-2xl mb-1">Signup</h1>
-            <p className="text-sm font-normal text-gray-600 mb-7">
-              We can't wait to have you onboard!
+            <p className="text-sm text-center font-normal py-1 px-2 text-red-600 bg-red-100 mb-7">
+              <b>P.S:</b> This functionality is currently under development,{" "}
+              <br />
+              but you can play around to test the client-side validations!
             </p>
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+            <div
+              className={`${
+                errName && "border-red-400 focus-visible:border-red-500"
+              } flex items-center border-2 py-2 px-3 rounded-2xl mb-4`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-400"
+                className={`${errName && "text-red-500"} h-5 w-5 text-gray-400`}
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -39,17 +95,28 @@ const Signup = () => {
                 />
               </svg>
               <input
-                className="pl-2 outline-none border-none"
                 type="text"
-                name=""
-                id=""
-                placeholder="Full name"
+                name="name"
+                onChange={handleNameChange}
+                value={name}
+                className={`${
+                  errName
+                    ? "border-red-400 focus-visible:border-red-500 outline-none"
+                    : " outline-none border-none"
+                }`}
+                placeholder={errName ? "Please enter your name..." : "Name"}
               />
             </div>
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+            <div
+              className={`${
+                errEmail && "border-red-400 focus-visible:border-red-500"
+              } flex items-center border-2 py-2 px-3 rounded-2xl mb-4`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-400"
+                className={`${
+                  errEmail && "text-red-500"
+                } h-5 w-5 text-gray-400`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -62,17 +129,30 @@ const Signup = () => {
                 />
               </svg>
               <input
-                className="pl-2 outline-none border-none"
-                type="text"
-                name=""
-                id=""
-                placeholder="Email Address"
+                type="email"
+                name="email"
+                onChange={handleEmailChange}
+                value={email}
+                className={`${
+                  errEmail
+                    ? "border-red-400 focus-visible:border-red-500 outline-none"
+                    : " outline-none border-none"
+                }`}
+                placeholder={
+                  errEmail ? "Please enter your email..." : "Email Address"
+                }
               />
             </div>
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
+            <div
+              className={`${
+                errPassword && "border-red-400 focus-visible:border-red-500"
+              } flex items-center border-2 py-2 px-3 rounded-2xl mb-4`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-400"
+                className={`${
+                  errPassword && "text-red-500"
+                } h-5 w-5 text-gray-400`}
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -83,11 +163,18 @@ const Signup = () => {
                 />
               </svg>
               <input
-                className="pl-2 outline-none border-none"
-                type="text"
-                name=""
-                id=""
-                placeholder="Password"
+                type="password"
+                name="password"
+                onChange={handlePasswordChange}
+                value={password}
+                className={`${
+                  errPassword
+                    ? "border-red-400 focus-visible:border-red-500 outline-none"
+                    : " outline-none border-none"
+                }`}
+                placeholder={
+                  errPassword ? "Please enter your password..." : "Password"
+                }
               />
             </div>
             <button
@@ -98,7 +185,9 @@ const Signup = () => {
             </button>
             <span className="text-sm ml-2">
               Already have an account?
-              <a className="text-sm ml-2 text-blue-500">Login now</a>
+              <Link to="/login" className="text-sm ml-2 text-blue-500">
+                Login now
+              </Link>
             </span>
           </form>
         </div>
