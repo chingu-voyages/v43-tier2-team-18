@@ -316,6 +316,7 @@ export const travelData = [
           "name": "Times Square",
           "images": "https://cdn.pixabay.com/photo/2020/06/08/20/58/nyc-5276112__480.jpg"
         },
+        
         {
           "name": "Hollywood Walk of Fame",
           "images": "https://cdn.pixabay.com/photo/2019/04/17/01/34/hollywood-4133248__480.jpg"
