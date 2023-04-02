@@ -37,7 +37,7 @@ function SwiperHero() {
         <SwiperSlide key={obj.text}>
           <div className="w-full h-screen">
             <img
-              className="min-h-screen w-full object-cover z-0"
+              className="mask-image min-h-screen w-full object-cover z-0"
               src={obj.img}
             />
             <div className="absolute inset-0 text-white flex justify-center items-center bg-gray-500 bg-opacity-30 font-bold z-100 xs:text-5xl text-7xl md:text-9xl h-screen">
