@@ -43,6 +43,7 @@ function PopularAttractions() {
       <div className="w-full flex flex-nowrap gap-8 pb-8 overflow-x-scroll  mt-8">
         {attractions.map((attraction) => (
           <PopularAttractionsCard
+            key={attraction.name}
             className="flex-grow-0"
             attraction={attraction}
           />

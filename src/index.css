@@ -30,9 +30,10 @@
   };
   .text-shadow {
     text-shadow: 2px 2px 50px rgba(0,0,0,0.6);
-  };
+  };  
   
   .mask-image {
-    mask-image: linear-gradient(to top, white, black);
+    mask-image: linear-gradient(black, transparent);
   }
-}
+  
+} 
