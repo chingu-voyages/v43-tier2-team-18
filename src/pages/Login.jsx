@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { Navbar } from "../components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [Loggedin, setLoggedin] = useState("false");
+  const navigate = useNavigate();
 
   // incase of errors
   const [errEmail, setErrEmail] = useState(false);
   const [errPassword, setErrPassword] = useState(false);
+
+  const demoEmail = "demo@demo.com";
+  const demoPass = "demo123";
 
   const validateEmail = (email) => {
     return (
@@ -29,6 +34,17 @@ const Login = () => {
     setErrPassword(false);
   };
 
+  const isLoggedin = (email, password) => {
+    if (email === demoEmail && password === demoPass) {
+      setLoggedin(true);
+      localStorage.clear();
+      localStorage.setItem("user", email);
+      setTimeout(() => {
+        navigate("/welcome");
+      }, 1000);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -42,6 +58,8 @@ const Login = () => {
     if (!password) {
       setErrPassword(true);
     }
+
+    isLoggedin(email, password);
   };
 
   return (
@@ -51,8 +69,11 @@ const Login = () => {
         <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
           <form className="bg-white" onSubmit={handleSubmit}>
             <h1 className="text-gray-800 font-bold text-2xl mb-1">Login</h1>
+            <p className="text-sm font-normal text-gray-600">
+              email: demo@demo.com
+            </p>
             <p className="text-sm font-normal text-gray-600 mb-7">
-              We're excited to have you back!
+              password: demo123
             </p>
             <div
               className={`${
@@ -76,7 +97,7 @@ const Login = () => {
                 />
               </svg>
               <input
-                type="text"
+                type="email"
                 name="email"
                 onChange={handleEmailChange}
                 value={email}
@@ -110,7 +131,7 @@ const Login = () => {
                 />
               </svg>
               <input
-                type="text"
+                type="password"
                 name="password"
                 onChange={handlePasswordChange}
                 value={password}
