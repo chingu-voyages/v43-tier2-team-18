@@ -1,6 +1,10 @@
-import { Footer, Navbar, SwiperHero, TabsSection } from "../components";
-import PopularAttractions from "../components/PopularAttractions";
-import PopularAttractionsCard from "../components/PopularAttractionsCard";
+import {
+  Footer,
+  Navbar,
+  SwiperHero,
+  TabsSection,
+  PopularAttractions,
+} from "../components";
 
 const DestinationInfo = () => {
   return (

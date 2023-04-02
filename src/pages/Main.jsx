@@ -1,6 +1,10 @@
 import React from "react";
-import { HowItWorks, CallToAction, DestinationInfo } from "../components";
-import Header from "../components/Header";
+import {
+  Header,
+  HowItWorks,
+  CallToAction,
+  LandingPageCarousal,
+} from "../components";
 
 const Main = () => {
   return (
@@ -12,8 +16,8 @@ const Main = () => {
         ...and others (if any) */}
       <Header />
       <HowItWorks />
+      <LandingPageCarousal />
       <CallToAction />
-      {/* <DestinationInfo /> */}
     </div>
   );
 };
