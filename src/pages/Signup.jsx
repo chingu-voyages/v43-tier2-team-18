@@ -72,8 +72,10 @@ const Signup = () => {
         <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
           <form className="bg-white" onSubmit={handleSubmit}>
             <h1 className="text-gray-800 font-bold text-2xl mb-1">Signup</h1>
-            <p className="text-sm font-normal text-gray-600 mb-7">
-              We can't wait to have you onboard!
+            <p className="text-sm text-center font-normal py-1 px-2 text-red-600 bg-red-100 mb-7">
+              <b>P.S:</b> This functionality is currently under development,{" "}
+              <br />
+              but you can play around to test the client-side validations!
             </p>
             <div
               className={`${
