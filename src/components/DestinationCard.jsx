@@ -10,14 +10,16 @@ import React from 'react';
 //     },
 //   ];
 
-const DestinationCard = ({ image, country, rating }) => {
+const DestinationCard = (props) => {
+  console.log(props)
     return (
-      <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white cursor-pointer">
-        <img className="w-full h-48 object-cover object-center" src={image} alt={country} />
+      
+      <div className="max-w-xs rounded overflow-hidden shadow-lg bg-white cursor-pointer">
+        <img className="w-full h-48 object-cover object-center" src={props.destination.image} alt={props.destination.name} />
         <div className=" flex justify-between items-center px-6 py-4">
-          <div className="font-bold text-xl mb-2">{country}</div>
+          <div className="font-bold text-xl mb-2">{props.destination.name}</div>
           <div className="text-yellow-500 text-lg pb-2">
-            {Array.from({ length: rating }, (_, i) => (
+            {Array.from({ length: props.destination.rating }, (_, i) => (
               <span key={i} role="img" aria-label="star">
                 ★
               </span>
@@ -25,6 +27,7 @@ const DestinationCard = ({ image, country, rating }) => {
           </div>
         </div>
       </div>
+     
     );
   };
 export default DestinationCard;

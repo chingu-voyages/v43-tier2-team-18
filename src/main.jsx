@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { LayoutRoute } from "./components";
-import { DestinationInfo, Login, Signup, Welcome } from "./pages";
+import { DestinationInfo, Login, Signup, Welcome, TravelGuide } from "./pages";
 
 import "./index.css";
 
@@ -12,8 +12,13 @@ const router = createBrowserRouter([
     element: <LayoutRoute />,
   },
   {
-    path: "/destination",
+    path: "/destinationInfo",
     element: <DestinationInfo />,
+  },
+  {
+    path: "/destination",
+    // element: <DestinationInfo />,
+    element: <TravelGuide />
   },
   {
     path: "/login",
