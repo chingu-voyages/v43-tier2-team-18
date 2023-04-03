@@ -55,24 +55,17 @@ const Navbar = () => {
             <img src={logo} alt="logo" className="w-20 md:w-24" />
           </Link>
         </div>
+        {/* dark:top-16 dark:pt-5 dark:md:pt-0 */}
         <div
           className={`${
             isOpen ? "grid" : "hidden"
-          } z-50 bg-white absolute top-20 left-0 gap-3 md:flex w-full md:w-fit md:static md:gap-8 text-sm  dark:bg-black dark:top-16 dark:pt-5 dark:md:pt-0`}
+          } z-50 bg-white absolute top-20 left-0 gap-3 md:flex w-full md:w-fit md:static md:gap-8 text-sm  dark:bg-black `}
         >
           <Link to="/" className={navItemStyles}>
             Home
           </Link>
           <Link to="/destination" className={navItemStyles}>
             Explore
-          </Link>
-
-          <Link to="/destination" className={navItemStyles}>
-            Destination
-          </Link>
-
-          <Link to="/contact" className={navItemStyles}>
-            Contact
           </Link>
 
           {/* TOGGLE THEME MODE */}
@@ -102,7 +95,7 @@ const Navbar = () => {
         <div
           className={`${
             isOpen ? "grid" : "hidden"
-          } gap-3 z-50 bg-white justify-center absolute top-[216px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black`}
+          } gap-3 z-50 bg-white justify-start absolute top-[160px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black`}
         >
           <Link
             to="/login"
