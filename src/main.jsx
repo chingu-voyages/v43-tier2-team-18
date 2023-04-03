@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { LayoutRoute } from "./components";
 import { DestinationInfo, Login, Signup, Welcome } from "./pages";
 
 import "./index.css";
@@ -9,7 +9,7 @@ import "./index.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LayoutRoute />,
+    element: <App />,
   },
   {
     path: "/destination",
