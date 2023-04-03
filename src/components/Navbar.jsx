@@ -9,7 +9,7 @@ import { FiMenu } from "react-icons/fi";
 
 const navItemStyles = `
   border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300
-`
+`;
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,17 +34,17 @@ const Navbar = () => {
   onWindowMatch();
 
   useEffect(() => {
-    if (isActive === 'moon') {
+    if (isActive === "moon") {
       element.classList.add("dark");
       localStorage.setItem("isActive", "dark");
     }
 
-    if (isActive === 'sun') {
+    if (isActive === "sun") {
       element.classList.remove("dark");
       localStorage.setItem("isActive", "light");
     }
 
-    if (!isActive) localStorage.removeItem('isActive')
+    if (!isActive) localStorage.removeItem("isActive");
   }, [isActive]);
 
   return (
@@ -60,30 +60,18 @@ const Navbar = () => {
             isOpen ? "grid" : "hidden"
           } z-50 bg-white absolute top-20 left-0 gap-3 md:flex w-full md:w-fit md:static md:gap-8 text-sm  dark:bg-black dark:top-16 dark:pt-5 dark:md:pt-0`}
         >
-          <Link
-            to="/"
-            className={navItemStyles}
-          >
+          <Link to="/" className={navItemStyles}>
             Home
           </Link>
-          <Link
-            to="/destination"
-            className={navItemStyles}
-          >
+          <Link to="/destination" className={navItemStyles}>
             Explore
           </Link>
 
-          <Link
-            to='/destination'
-            className={navItemStyles}
-          >
+          <Link to="/destination" className={navItemStyles}>
             Destination
           </Link>
 
-          <Link
-            to="#"
-            className={navItemStyles}
-          >
+          <Link to="/contact" className={navItemStyles}>
             Contact
           </Link>
 
@@ -117,13 +105,13 @@ const Navbar = () => {
           } gap-3 z-50 bg-white justify-center absolute top-[216px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black`}
         >
           <Link
-            to="#"
+            to="/login"
             className="border-l-2 border-l-transparent px-3 ml-3 py-2 md:py-0 md:hover:py-2 md:ml-0 pt-5 md:pt-0 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600  transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
             Login
           </Link>
           <Link
-            to="#"
+            to="/signup"
             className="px-4 py-2 md:px-5 text-gray-100 bg-[#486284] rounded-3xl hover:translate-y-1 md:hover:translate-y-0 md:hover:scale-105 transition duration-50 ease-in-out w-24 ml-5 md:ml-0 mb-5 md:mb-0"
           >
             Signup

@@ -1,5 +1,12 @@
-import { Footer, Navbar, SwiperHero, TabsSection } from "../components";
-import PopularAttractionsCard from "../components/PopularAttractionsCard";
+
+import {
+  Footer,
+  Navbar,
+  SwiperHero,
+  TabsSection,
+  PopularAttractions,
+} from "../components";
+
 
 const DestinationInfo = () => {
   return (
@@ -7,7 +14,7 @@ const DestinationInfo = () => {
       <Navbar />
       <SwiperHero />
       <TabsSection />
-      {/* <PopularAttractionsCard /> */}
+      <PopularAttractions />
       <Footer />
     </div>
   );

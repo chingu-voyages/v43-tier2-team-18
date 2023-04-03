@@ -33,11 +33,13 @@ const TabsSection = () => {
             </h5>
             <ul className="list-disc">
               {highlights.map((item, index) => (
-                <li className='py-2' key={index}>{item}</li>
+                <li className="py-2" key={index}>
+                  {item}
+                </li>
               ))}
             </ul>
 
-            <h5 className="py-2 mt-6 font-semibold text-2xl">Price Includes:</h5>
+            {/* <h5 className="py-2 mt-6 font-semibold text-2xl">Price Includes:</h5>
             <ul className="list-disc">
               {priceIncludes.map((item, index) => (
                 <li className='py-2' key={index}>{item}</li>
@@ -56,7 +58,7 @@ const TabsSection = () => {
               {complimentaries.map((item, index) => (
                 <li className='py-2' key={index}>{item}</li>
               ))}
-            </ul>
+            </ul> */}
           </TabPanel>
           <TabPanel className="font-normal text-lg pb-5">
             <p>
