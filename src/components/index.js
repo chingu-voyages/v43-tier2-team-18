@@ -1,6 +1,5 @@
 export { default as Navbar } from "./Navbar";
 export { default as Footer } from "./Footer";
-export { default as LayoutRoute } from "./Root";
 export { default as Main } from "../pages/Main";
 export { default as HowItWorks } from "./HowItWorks";
 export { default as CallToAction } from "./CallToAction";

@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import { DestinationInfo, LayoutRoute, Main } from "./components";
+import { DestinationInfo } from "./components";
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <LayoutRoute />
+    element: <App />
   },
   {
     path: '/destination',

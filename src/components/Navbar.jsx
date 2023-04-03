@@ -7,6 +7,10 @@ import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 
+const navItemStyles = `
+  border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300
+`
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState("");
@@ -58,22 +62,30 @@ const Navbar = () => {
         >
           <Link
             to="/"
-            className="border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:ml-0 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300"
+            className={navItemStyles}
           >
             Home
           </Link>
           <Link
-            to="destination"
-            className="border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300"
+            to="/destination"
+            className={navItemStyles}
           >
             Explore
           </Link>
-          <a
-            href="#"
-            className="border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300"
+
+          <Link
+            to='/destination'
+            className={navItemStyles}
+          >
+            Destination
+          </Link>
+
+          <Link
+            to="#"
+            className={navItemStyles}
           >
             Contact
-          </a>
+          </Link>
 
           {/* TOGGLE THEME MODE */}
           <div className="hidden md:flex gap-5 bg-[#486284] border-2 border-[#325078]  px-3 py-2 rounded-full text-white">
@@ -104,18 +116,18 @@ const Navbar = () => {
             isOpen ? "grid" : "hidden"
           } gap-3 z-50 bg-white justify-center absolute top-[216px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black`}
         >
-          <a
-            href="#"
+          <Link
+            to="#"
             className="border-l-2 border-l-transparent px-3 ml-3 py-2 md:py-0 md:hover:py-2 md:ml-0 pt-5 md:pt-0 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600  transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
             Login
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="#"
             className="px-4 py-2 md:px-5 text-gray-100 bg-[#486284] rounded-3xl hover:translate-y-1 md:hover:translate-y-0 md:hover:scale-105 transition duration-50 ease-in-out w-24 ml-5 md:ml-0 mb-5 md:mb-0"
           >
             Signup
-          </a>
+          </Link>
         </div>
 
         {/*--- MOBILE VIEW --- */}
