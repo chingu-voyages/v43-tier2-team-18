@@ -22,26 +22,7 @@ export default function CallToAction() {
         px-5 py-3 font-medium  rounded-md text-indigo-600 bg-white sm:justify-between sm:inline-flex sm:mr-2"
 
         >
-          <span className="inline-block mx-auto">Explore</span>
-        </a>
-
-        <a
-          href="#"
-
-          className="min-w-[150px] max-w-[300px] mx-auto mt-8 text-md flex items-center justify-center
-        px-5 py-3 font-medium  rounded-md text-indigo-600 bg-white sm:justify-between sm:inline-flex sm:mr-2"
-
-        >
           <span className="inline-block mx-auto">Get started</span>
-        </a>
-
-        <a
-          href="#"
-          className="min-w-[150px] max-w-[300px] mx-auto mt-8 text-md flex items-center justify-center
-        px-5 py-3 font-medium  rounded-md text-indigo-600 bg-white sm:justify-between sm:inline-flex"
-
-        >
-          <span className="inline-block mx-auto">Learn more</span>
         </a>
       </div>
     </section>

@@ -1,11 +1,13 @@
 import React from "react";
-import { LayoutRoute } from "./components";
+import { Footer, Navbar } from "./components";
 import { Main, DestinationInfo } from "./pages";
 
 function App() {
   return (
-    <div className="">
-      <LayoutRoute />
+    <div className="App">
+      <Navbar />
+      <Main />
+      <Footer />
     </div>
   );
 }
