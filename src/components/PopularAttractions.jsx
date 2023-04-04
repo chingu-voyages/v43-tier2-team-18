@@ -36,7 +36,7 @@ const attractions = [
 
 function PopularAttractions() {
   return (
-    <div className="bg-heroBg bg-cover xs:p-3 md:p-8">
+    <div className="bg-heroBg bg-cover xs:p-6 md:p-8 md:px-12 lg:px-24">
       <h3 className="text-center font-bold text-4xl lg:text-5xl mb-10 mt-0">
         Popular Attractions
       </h3>
@@ -44,7 +44,6 @@ function PopularAttractions() {
         {attractions.map((attraction) => (
           <PopularAttractionsCard
             key={attraction.name}
-            className="flex-grow-0"
             attraction={attraction}
           />
         ))}
