@@ -1,33 +1,35 @@
-import React from 'react'
-import DestinationCard from '../components/DestinationCard'
-import { Navbar } from '../components'
-import {v4 as uuidv4} from "uuid"
-import {travelData} from ".././data.js"
-import { Link } from 'react-router-dom'
-
+import React from "react";
+import DestinationCard from "../components/DestinationCard";
+import { Navbar, Footer } from "../components";
+import { v4 as uuidv4 } from "uuid";
+import { travelData } from ".././data.js";
+import { Link } from "react-router-dom";
 
 export default function TravelGuide() {
-    const destinationCards = travelData.map((destination) => (
-        <Link key={uuidv4()} to={{ pathname: '/destinationInfo',state: { countryData: destination }}}>
-            <DestinationCard {...destination} />
-        </Link>
-    ));
+  const destinationCards = travelData.map((destination, index) => (
+    <Link
+      key={uuidv4()}
+      to={{ pathname: "/destinationInfo", state: { countryData: destination } }}
+      className="scale-100 hover:scale-110 focus:scale-110   transition duration-150 ease-in-out"
+    >
+      <DestinationCard {...destination} index={index} />
+    </Link>
+  ));
   return (
-   
-    <div className='p-4'>
-     <Navbar />
-    {/* Popular Destinations(JIRA TASK NAME) */}
+    <div>
+      <Navbar />
+      {/* Popular Destinations(JIRA TASK NAME) */}
 
-
-    {/* Destination destinations(JIRA TASK NAME) */}    
-    <section>
-        <h2 className='font-bold text-3xl pt-8 pb-8'>Popular locations</h2>
-        <div className='flex flex-wrap gap-6'>
-            {destinationCards}
+      {/* Destination destinations(JIRA TASK NAME) */}
+      <section className="p-8 md:px-12 lg:px-24">
+        <h2 className="font-bold text-3xl lg:text-4xl pt-8 pb-8 text-center">
+          Popular Destinations
+        </h2>
+        <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {destinationCards}
         </div>
-        
-    </section>
-       
+      </section>
+      <Footer />
     </div>
-  )
+  );
 }

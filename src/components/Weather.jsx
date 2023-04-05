@@ -18,30 +18,39 @@ function Weather() {
 
   React.useEffect(() => {
     async function getCoordinates() {
-      const response = await fetch(
-        `https://nominatim.openstreetmap.org/search?q={Zurich}&format=json&limit=1
+      try {
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/search?q={Zurich}&format=json&limit=1
         `
-      );
-      const data = await response.json();
-      setPosition({
-        latitude: data[0].lat,
-        longitude: data[0].lon,
-      });
+        );
+        const data = await response.json();
+        setPosition({
+          latitude: parseFloat(data[0].lat),
+          longitude: parseFloat(data[0].lon),
+        });
+      } catch (err) {
+        console.log(err);
+      }
+      //setPosition({latitude: parseFloat(lati)})
     }
     getCoordinates();
 
     async function getWeather() {
-      const response = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,precipitation_probability,uv_index&current_weather=true`
-      );
-      const data = await response.json();
-      const { current_weather, hourly, timezone } = data;
-      setWeather({
-        temperature: current_weather.temperature,
-        uvIndex: hourly.uv_index[0],
-        precipitationProbability: hourly.precipitation_probability[0],
-        timezone: timezone,
-      });
+      try {
+        const response = await fetch(
+          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,precipitation_probability,uv_index&current_weather=true`
+        );
+        const data = await response.json();
+        const { current_weather, hourly, timezone } = data;
+        setWeather({
+          temperature: current_weather.temperature,
+          uvIndex: hourly.uv_index[0],
+          precipitationProbability: hourly.precipitation_probability[0],
+          timezone: timezone,
+        });
+      } catch (err) {
+        console.log(err);
+      }
     }
     getWeather();
   }, []);
