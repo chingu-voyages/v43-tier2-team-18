@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <div className="bg-heroBg bg-cover bg-gray-300 bg-blend-multiply w-full h-screen">
@@ -10,12 +12,15 @@ const Header = () => {
           our curated travel guides.
         </p>
         <div className="flex gap-7 justify-center w-full items-stretch xs:flex-col md:flex-row max-w-xl">
-          <button className="xs:w-full  px-10 button bg-[#486284] text-white">
+          <Link
+            to="/destination"
+            className="xs:w-full  px-10 button bg-[#486284] text-white"
+          >
             Get started
-          </button>
-          <button className="xs:w-full px-10 button bg-white">
+          </Link>
+          <a href="/#howItWorks" className="xs:w-full px-10 button bg-white">
             Learn more
-          </button>
+          </a>
         </div>
       </div>
     </div>

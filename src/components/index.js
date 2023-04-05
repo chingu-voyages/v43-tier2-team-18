@@ -9,4 +9,4 @@ export { default as DestinationCard } from "./DestinationCard";
 export { default as PopularAttractions } from "./PopularAttractions";
 export { default as PopularAttractionsCard } from "./PopularAttractionsCard";
 export { default as LandingPageCarousal } from "./LandingPageCarousal";
-export { default as Carousal } from "./Carousal";
+export { default as BackgroundWithText } from "./BackgroundWithText";
