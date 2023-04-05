@@ -1,19 +1,11 @@
 import React from "react";
 import DestinationCard from "../components/DestinationCard";
 import { Navbar, Footer } from "../components";
-import { v4 as uuidv4 } from "uuid";
 import { travelData } from ".././data.js";
-import { Link } from "react-router-dom";
 
 export default function TravelGuide() {
   const destinationCards = travelData.map((destination, index) => (
-    <Link
-      key={uuidv4()}
-      to={{ pathname: "/destinationInfo", state: { countryData: destination } }}
-      className="scale-100 hover:scale-110 focus:scale-110   transition duration-150 ease-in-out"
-    >
-      <DestinationCard {...destination} index={index} />
-    </Link>
+    <DestinationCard key={destination.id} {...destination} index={index} />
   ));
   return (
     <div>

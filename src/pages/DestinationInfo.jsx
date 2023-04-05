@@ -5,14 +5,19 @@ import {
   TabsSection,
   PopularAttractions,
 } from "../components";
+import { useParams } from "react-router-dom";
+import { travelData } from "../data";
 
 const DestinationInfo = () => {
+  const { id } = useParams();
+  const { destination } = travelData.find((item) => item.destination.id === id);
+
   return (
-    <div>
+    <div className="dark:bg-black dark:text-white">
       <Navbar />
-      <SwiperHero />
-      <TabsSection />
-      <PopularAttractions />
+      <SwiperHero destination={destination} />
+      <TabsSection destination={destination} />
+      <PopularAttractions destination={destination} />
       <Footer />
     </div>
   );
