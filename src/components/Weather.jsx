@@ -1,7 +1,7 @@
 import React from "react";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 
-function Weather() {
+function Weather({ destination }) {
   const [position, setPosition] = React.useState({
     latitude: "",
     longitude: "",
@@ -16,11 +16,13 @@ function Weather() {
 
   const { latitude, longitude } = position;
 
+  console.log(position);
+
   React.useEffect(() => {
     async function getCoordinates() {
       try {
         const response = await fetch(
-          `https://nominatim.openstreetmap.org/search?q={Zurich}&format=json&limit=1
+          `https://nominatim.openstreetmap.org/search?q=${destination.capitalCity}&format=json&limit=1
         `
         );
         const data = await response.json();
@@ -31,7 +33,6 @@ function Weather() {
       } catch (err) {
         console.log(err);
       }
-      //setPosition({latitude: parseFloat(lati)})
     }
     getCoordinates();
 
@@ -53,7 +54,7 @@ function Weather() {
       }
     }
     getWeather();
-  }, []);
+  }, [destination]);
 
   return (
     <div className="p-4 bg-yellow-50 dark:bg-yellow-900 mt-4 rounded-lg">

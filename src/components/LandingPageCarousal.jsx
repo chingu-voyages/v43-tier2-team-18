@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import BackgroundWithText from "./BackgroundWithText";
-import { carousalData } from "../data";
+import { travelData } from "../data";
 
 function LandingPageCarousal() {
   return (
@@ -21,13 +21,19 @@ function LandingPageCarousal() {
       pagination={{ clickable: true }}
       modules={[Autoplay, Navigation, Pagination]}
     >
-      {carousalData.map((obj) => (
-        <SwiperSlide key={obj.text}>
-          <Link to="/destinationInfo">
-            <BackgroundWithText obj={obj} height="70vh" link="true" />
-          </Link>
-        </SwiperSlide>
-      ))}
+      {travelData
+        .filter((_, index) => index > 7)
+        .map((obj) => (
+          <SwiperSlide key={obj.destination.id}>
+            <Link to={`/${obj.destination.id}`}>
+              <BackgroundWithText
+                obj={obj.destination}
+                height="70vh"
+                link="true"
+              />
+            </Link>
+          </SwiperSlide>
+        ))}
     </Swiper>
   );
 }

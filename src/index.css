@@ -4,21 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ::-webkit-scrollbar{
+/* ::-webkit-scrollbar {
   width: 0.8em;
 }
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background-color: #e5dfdf;
   border-radius: 20px;
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: #bdb6b6;
   border: 5px solid #e5dfdf;
   border-radius: 20px;
   margin: 3px;
 }
-@supports (scrollbar-color: #bdb6b6 #e5dfdf){
-  *{
+@supports (scrollbar-color: #bdb6b6 #e5dfdf) {
+  * {
     scrollbar-color: #bdb6b6 #e5dfdf;
     scrollbar-width: auto;
   }
