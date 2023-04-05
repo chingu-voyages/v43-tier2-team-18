@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function CallToAction() {
   return (
-    <section className="font-Poppins text-black h-[400px]">
+    <section className="font-Poppins text-black h-[400px] dark:text-white dark:bg-black dark:border-b-2 border-gray-700">
       <div className="max-w-2xl mx-auto text-center py-12 px-4">
         <h2 className="text-3xl font-extrabold  sm:text-4xl mt-14">
           <span className="block">Start Your Journey Today.</span>

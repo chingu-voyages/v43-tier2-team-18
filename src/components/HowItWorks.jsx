@@ -22,7 +22,7 @@ const features = [
 
 function HowItWorks() {
   return (
-    <div className="p-8 dark:bg-black" id="howItWorks">
+    <div className="p-8 dark:bg-black " id="howItWorks">
       <h2 className="text-center lg:text-5xl xs:text-4xl font-bold text-gray-900 md:mb-16  dark:text-white">
         How it Works
       </h2>

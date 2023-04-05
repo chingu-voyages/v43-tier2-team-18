@@ -2,7 +2,7 @@ import Weather from "./Weather";
 
 const TabsSection = () => {
   return (
-    <section className="flex flex-col-reverse md:flex-row xs:grid-cols-1 md:grid-cols-6 gap-8 px-6 py-10 mx-auto max-w-6xl text-gray-800">
+    <section className="flex flex-col-reverse md:px-12 lg:px-24 md:flex-row xs:grid-cols-1 md:grid-cols-6 gap-8 px-6 py-10 mx-auto max-w-6xl text-gray-800 dark:bg-black dark:text-gray-100">
       <div className="col-span-3 text-left  md:text-lg">
         <h3 className="py-2 font-semibold text-2xl lg:text-3xl">
           Culture and History
@@ -45,7 +45,7 @@ const TabsSection = () => {
           engineering and innovation.
         </p>
       </div>
-      <div className="min-w-[250px] md:min-w-[300px] p-8 w-full bg-blue-50 rounded-lg text-xl">
+      <div className="min-w-[250px] md:min-w-[300px] p-8 w-full bg-blue-50 dark:bg-blue-900 rounded-lg text-xl">
         <p>
           Switzerland is a beautiful country in Europe that is famous for its
           breathtaking Alpine scenery, charming cities, and rich culture.

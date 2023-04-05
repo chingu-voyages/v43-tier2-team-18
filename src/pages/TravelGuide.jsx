@@ -21,7 +21,7 @@ export default function TravelGuide() {
       {/* Popular Destinations(JIRA TASK NAME) */}
 
       {/* Destination destinations(JIRA TASK NAME) */}
-      <section className="p-8 md:px-12 lg:px-24">
+      <section className="p-8 md:px-12 lg:px-24 dark:bg-black dark:text-white">
         <h2 className="font-bold text-3xl lg:text-4xl pt-8 pb-8 text-center">
           Popular Destinations
         </h2>

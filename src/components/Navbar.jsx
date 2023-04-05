@@ -95,7 +95,7 @@ const Navbar = () => {
         <div
           className={`${
             isOpen ? "grid" : "hidden"
-          } gap-3 z-50 bg-white justify-start absolute top-[160px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black`}
+          } gap-3 z-50 bg-white justify-center absolute top-[160px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black`}
         >
           <Link
             to="/login"

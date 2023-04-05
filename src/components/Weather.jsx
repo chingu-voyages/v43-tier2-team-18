@@ -56,20 +56,24 @@ function Weather() {
   }, []);
 
   return (
-    <div className="p-4 bg-yellow-50 mt-4 rounded-lg">
+    <div className="p-4 bg-yellow-50 dark:bg-yellow-900 mt-4 rounded-lg">
       <h4 className="font-bold text-2xl mb-4">
         Weather <TiWeatherPartlySunny className="inline-block" />
       </h4>
       <p>
-        <span className="font-semibold text-gray-500">Temperature:</span>{" "}
+        <span className="font-semibold text-gray-500 dark:text-gray-400">
+          Temperature:
+        </span>{" "}
         {weather.temperature}&#8451;
       </p>
       <p>
-        <span className="font-semibold text-gray-500">UV Index:</span>{" "}
+        <span className="font-semibold text-gray-500 dark:text-gray-400">
+          UV Index:
+        </span>{" "}
         {weather.uvIndex}
       </p>
       <p>
-        <span className="font-semibold text-gray-500">
+        <span className="font-semibold text-gray-500 dark:text-gray-400">
           Probability of precipitation:
         </span>{" "}
         {weather.precipitationProbability}%
