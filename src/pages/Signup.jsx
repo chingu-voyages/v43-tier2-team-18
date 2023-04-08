@@ -1,8 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "../components";
 import { Link } from "react-router-dom";
 
+// working with redux store
+import { useDispatch } from "react-redux";
+import { actions } from "../features/auth/authSlice";
+import { store } from "../app/store";
+
 const Signup = () => {
+  // useEffect(() => {
+  //   console.log(store.getState());
+  //   dispatch(actions.clearValue());
+  //   console.log(store.getState);
+  // }, []);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,6 +21,8 @@ const Signup = () => {
   const [errName, setErrName] = useState(false);
   const [errEmail, setErrEmail] = useState(false);
   const [errPassword, setErrPassword] = useState(false);
+
+  const dispatch = useDispatch();
 
   const validateEmail = (email) => {
     return (
@@ -49,6 +61,22 @@ const Signup = () => {
     }
     if (!password) {
       setErrPassword(true);
+    }
+
+    if (setErrName && setErrEmail && setErrPassword) {
+      try {
+        dispatch(
+          actions.signupNewUser({
+            username: name,
+            email: email,
+            password: password,
+          })
+        );
+        console.log(store.getState());
+        console.log("User Signed up successfully!");
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
   return (
