@@ -25,7 +25,7 @@ function LandingPageCarousal() {
         .filter((_, index) => index > 7)
         .map((obj) => (
           <SwiperSlide key={obj.destination.id}>
-            <Link to={`/${obj.destination.id}`}>
+            <Link to={`/destination/${obj.destination.id}`}>
               <BackgroundWithText
                 obj={obj.destination}
                 height="70vh"

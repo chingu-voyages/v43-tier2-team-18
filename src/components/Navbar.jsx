@@ -31,12 +31,12 @@ const Navbar = () => {
   // BUILD PERSISTENCE USING LOCAL STORAGE
   function onWindowMatch() {
     if (
-      localStorage.isActive === "dark" ||
+      localStorage.isActive === "light" ||
       (!("isActive" in localStorage) && darkQuery.matches)
     ) {
-      element.classList.add("dark");
-    } else {
       element.classList.remove("dark");
+    } else {
+      element.classList.add("dark");
     }
   }
 
