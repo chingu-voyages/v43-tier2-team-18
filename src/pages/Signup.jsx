@@ -4,15 +4,19 @@ import { Link, useNavigate } from "react-router-dom";
 
 // working with redux store
 import { useDispatch } from "react-redux";
-import { actions } from "../features/auth/authSlice";
+import { signupNewUser, clearValue } from "../features/auth/authSlice";
+import {
+  signupCurrentUser,
+  clearCurrentUserValue,
+  loginCurrentUser,
+} from "../features/auth/loginUserSlice";
 import { store } from "../app/store";
 
 const Signup = () => {
-  // useEffect(() => {
-  //   console.log(store.getState());
-  //   dispatch(actions.clearValue());
-  //   console.log(store.getState);
-  // }, []);
+  useEffect(() => {
+    dispatch(clearValue());
+    dispatch(clearCurrentUserValue());
+  }, []);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -78,7 +82,7 @@ const Signup = () => {
 
   // CHECK IF EMAIL EXISTS
   const emailExists = (email) => {
-    const users = store.getState().auth.loginCredentials;
+    const users = store.getState().auth.signupState.loginCredentials;
     const result = Object.keys(users).find((key) => key === email);
     if (!result) {
       return true;
@@ -99,15 +103,16 @@ const Signup = () => {
         const result = emailExists(email);
         if (result) {
           dispatch(
-            actions.signupNewUser({
+            signupNewUser({
               name,
               email,
               password,
             })
           );
+          dispatch(signupCurrentUser(email));
           setTimeout(() => {
             navigate("/destination");
-          }, 1000);
+          }, 100);
           console.log("User signed up successfully");
         } else {
           setErrEmail("Email already exists!");
@@ -138,12 +143,7 @@ const Signup = () => {
         </div>
         <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
           <form className="bg-white" onSubmit={handleSubmit}>
-            <h1 className="text-gray-800 font-bold text-2xl mb-1">Signup</h1>
-            <p className="text-sm text-center font-normal py-1 px-2 text-red-600 bg-red-100 mb-7">
-              <b>P.S:</b> This functionality is currently under development,{" "}
-              <br />
-              but you can play around to test the client-side validations!
-            </p>
+            <h1 className="text-gray-800 font-bold text-2xl mb-7">Signup</h1>
             <div
               className={`${
                 errName && "border-red-400 focus-visible:border-red-500 mb-1"
