@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // ICONS
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
+
+// working with redux stores
+import { store } from "../app/store";
+import { useDispatch } from "react-redux";
+import { logoutCurrentUser } from "../features/auth/loginUserSlice";
 
 const navItemStyles = `
   border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300
@@ -14,12 +19,16 @@ const navItemStyles = `
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState("");
+  const [isValidated, setIsValidated] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState("");
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const element = document.documentElement;
   const darkQuery = window.matchMedia("(prefers-color-scheme: light)");
 
   // BUILD PERSISTENCE USING LOCAL STORAGE
-
   function onWindowMatch() {
     if (
       localStorage.isActive === "dark" ||
@@ -32,6 +41,15 @@ const Navbar = () => {
   }
 
   onWindowMatch();
+
+  useEffect(() => {
+    const isLoggedin = store.getState().auth.loginState.isLoggedIn;
+    if (isLoggedin) {
+      const currentUser = store.getState().auth.loginState.currentUser;
+      setLoggedInUser(currentUser);
+      setIsValidated(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (isActive === "moon") {
@@ -47,6 +65,13 @@ const Navbar = () => {
     if (!isActive) localStorage.removeItem("isActive");
   }, [isActive]);
 
+  const handleLogout = () => {
+    dispatch(logoutCurrentUser());
+    setTimeout(() => {
+      navigate("/");
+    }, 100);
+  };
+
   return (
     <nav className="border-b px-6 md:px-12 lg:px-24 py-3 text-slate-800 dark:text-gray-100  dark:bg-black dark:border-b-slate-600">
       <div className="flex justify-between items-center">
@@ -59,7 +84,7 @@ const Navbar = () => {
         <div
           className={`${
             isOpen ? "grid" : "hidden"
-          } z-50 bg-white absolute top-20 left-0 gap-3 md:flex w-full md:w-fit md:static md:gap-8 text-sm md:text-lg lg:text-2xl dark:bg-black `}
+          } z-50 bg-white absolute top-20 left-0 gap-3 md:flex w-full md:w-fit md:static md:gap-8 text-sm md:text-lg dark:bg-black `}
         >
           <Link to="/" className={navItemStyles}>
             Home
@@ -95,19 +120,20 @@ const Navbar = () => {
         <div
           className={`${
             isOpen ? "grid" : "hidden"
-          } gap-3 z-50 bg-white justify-center absolute top-[160px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black md:text-lg lg:text-2xl`}
+          } gap-3 z-50 bg-white justify-center absolute top-[160px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black md:text-lg`}
         >
           <Link
-            to="/login"
+            to={!isValidated && "/login"}
             className="border-l-2 border-l-transparent px-3 ml-3 py-2 md:py-0 md:hover:py-2 md:ml-0 pt-5 md:pt-0 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600  transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
-            Login
+            {!isValidated ? "Login" : loggedInUser}
           </Link>
           <Link
-            to="/signup"
+            to={!isValidated && "/signup"}
             className="px-4 py-2 md:px-5 text-gray-100 bg-[#486284] rounded-3xl hover:translate-y-1 md:hover:translate-y-0 md:hover:scale-105 transition duration-50 ease-in-out w-24 lg:w-32 ml-5 md:ml-0 mb-5 md:mb-0"
+            onClick={isValidated && handleLogout}
           >
-            Signup
+            {!isValidated ? "Signup" : "Logout"}
           </Link>
         </div>
 
