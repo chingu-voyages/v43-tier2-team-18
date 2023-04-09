@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "../components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // working with redux store
 import { useDispatch } from "react-redux";
@@ -13,25 +13,19 @@ const Signup = () => {
   //   dispatch(actions.clearValue());
   //   console.log(store.getState);
   // }, []);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // incase of errors
-  const [errName, setErrName] = useState(false);
-  const [errEmail, setErrEmail] = useState(false);
-  const [errPassword, setErrPassword] = useState(false);
+  // Incase of Errors
+  const [errName, setErrName] = useState("");
+  const [errEmail, setErrEmail] = useState("");
+  const [errPassword, setErrPassword] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const validateEmail = (email) => {
-    return (
-      String(email)
-        .toLowerCase()
-        // eslint-disable-next-line no-useless-escape
-        .match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
-    );
-  };
   const handleNameChange = (e) => {
     setName(e.target.value);
     setErrName(false);
@@ -47,38 +41,83 @@ const Signup = () => {
     setErrPassword(false);
   };
 
+  // HANDLE SUBMIT
   const handleSubmit = (e) => {
+    validateInputFields(e);
+    registerUser(e);
+  };
+
+  // VALIDATE EMAIL
+  const validateEmail = (email) => {
+    return (
+      String(email)
+        .toLowerCase()
+        // eslint-disable-next-line no-useless-escape
+        .match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+    );
+  };
+
+  // VALIDATE INPUT FIELDS
+  const validateInputFields = (e) => {
     e.preventDefault();
+
     if (!name) {
-      setErrName(true);
+      setErrName("Name field is required!");
     }
     if (!email) {
-      setErrEmail(true);
+      setErrEmail("Email field is required");
     } else {
       if (!validateEmail(email)) {
-        setErrEmail(true);
+        setErrEmail("Please enter a valid email");
       }
     }
     if (!password) {
-      setErrPassword(true);
+      setErrPassword("Password field is required");
     }
+  };
 
-    if (setErrName && setErrEmail && setErrPassword) {
+  // CHECK IF EMAIL EXISTS
+  const emailExists = (email) => {
+    const users = store.getState().auth.loginCredentials;
+    const result = Object.keys(users).find((key) => key === email);
+    if (!result) {
+      return true;
+    }
+  };
+
+  // REGISTER USER
+  const registerUser = (e) => {
+    if (
+      setErrName &&
+      setErrEmail &&
+      setErrPassword &&
+      name &&
+      email &&
+      password
+    ) {
       try {
-        dispatch(
-          actions.signupNewUser({
-            username: name,
-            email: email,
-            password: password,
-          })
-        );
-        console.log(store.getState());
-        console.log("User Signed up successfully!");
+        const result = emailExists(email);
+        if (result) {
+          dispatch(
+            actions.signupNewUser({
+              name,
+              email,
+              password,
+            })
+          );
+          setTimeout(() => {
+            navigate("/destination");
+          }, 1000);
+          console.log("User signed up successfully");
+        } else {
+          setErrEmail("Email already exists!");
+        }
       } catch (err) {
-        console.log(err);
+        setErrEmail(err);
       }
     }
   };
+
   return (
     <>
       <Navbar />
@@ -107,7 +146,7 @@ const Signup = () => {
             </p>
             <div
               className={`${
-                errName && "border-red-400 focus-visible:border-red-500"
+                errName && "border-red-400 focus-visible:border-red-500 mb-1"
               } flex items-center border-2 py-2 px-3 rounded-2xl mb-4`}
             >
               <svg
@@ -132,12 +171,17 @@ const Signup = () => {
                     ? "border-red-400 focus-visible:border-red-500 outline-none"
                     : " outline-none border-none"
                 }`}
-                placeholder={errName ? "Please enter your name..." : "Name"}
+                placeholder="Name..."
               />
             </div>
+            {errName && (
+              <p className="text-sm font-normal px-2 text-red-600 mb-2">
+                {errName}
+              </p>
+            )}
             <div
               className={`${
-                errEmail && "border-red-400 focus-visible:border-red-500"
+                errEmail && "border-red-400 focus-visible:border-red-500 mb-1"
               } flex items-center border-2 py-2 px-3 rounded-2xl mb-4`}
             >
               <svg
@@ -166,15 +210,19 @@ const Signup = () => {
                     ? "border-red-400 focus-visible:border-red-500 outline-none"
                     : " outline-none border-none"
                 }`}
-                placeholder={
-                  errEmail ? "Please enter your email..." : "Email Address"
-                }
+                placeholder="Email Address..."
               />
             </div>
+            {errEmail && (
+              <p className="text-sm font-normal px-2 text-red-600 mb-2">
+                {errEmail}
+              </p>
+            )}
             <div
               className={`${
-                errPassword && "border-red-400 focus-visible:border-red-500"
-              } flex items-center border-2 py-2 px-3 rounded-2xl mb-4`}
+                errPassword &&
+                "border-red-400 focus-visible:border-red-500 mb-1"
+              } flex items-center border-2 py-2 px-3 rounded-2xl`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -200,11 +248,14 @@ const Signup = () => {
                     ? "border-red-400 focus-visible:border-red-500 outline-none"
                     : " outline-none border-none"
                 }`}
-                placeholder={
-                  errPassword ? "Please enter your password..." : "Password"
-                }
+                placeholder="Password..."
               />
             </div>
+            {errPassword && (
+              <p className="text-sm font-normal px-2 text-red-600 mb-2">
+                {errPassword}
+              </p>
+            )}
             <button
               type="submit"
               className="block w-full bg-[#486284] mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
