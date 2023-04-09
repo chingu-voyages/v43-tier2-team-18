@@ -76,7 +76,7 @@ const Navbar = () => {
     <nav className="border-b px-6 md:px-12 lg:px-24 py-3 text-slate-800 dark:text-gray-100  dark:bg-black dark:border-b-slate-600">
       <div className="flex justify-between items-center">
         <div>
-          <Link to="/">
+          <Link to="/v43-tier2-team-18">
             <img src={logo} alt="logo" className="w-20 md:w-24" />
           </Link>
         </div>
@@ -86,7 +86,7 @@ const Navbar = () => {
             isOpen ? "grid" : "hidden"
           } z-50 bg-white absolute top-20 left-0 gap-3 md:flex w-full md:w-fit md:static md:gap-8 text-sm md:text-lg dark:bg-black `}
         >
-          <Link to="/" className={navItemStyles}>
+          <Link to="/v43-tier2-team-18" className={navItemStyles}>
             Home
           </Link>
           <Link to="/destination" className={navItemStyles}>
