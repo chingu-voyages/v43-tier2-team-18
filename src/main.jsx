@@ -8,7 +8,7 @@ import "./index.css";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/v43-tier2-team-18",
     element: <App />,
   },
   {
