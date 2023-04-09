@@ -4,20 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 // working with redux store
 import { useDispatch } from "react-redux";
-import { actions } from "../features/auth/authSlice";
+import { loginCurrentUser } from "../features/auth/loginUserSlice";
 import { store } from "../app/store";
 
 const Login = () => {
-  // useEffect(() => {
-  //   console.log(store.getState());
-  //   const users = store.getState().auth.loginCredentials;
-  //   console.log(users);
-  //   const password = "topeqwe";
-  //   const result = Object.keys(users).find((key) => key === "tope@gmail.com");
-  //   if (result && users["tope@gmail.com"] === password) {
-  //     console.log("Exists");
-  //   }
-  // }, []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -50,28 +40,23 @@ const Login = () => {
 
   // COMPARE EMAIL AND PASSWORD FOR VALIDATION
   const compareEmailAndPassword = (email, password) => {
-    const users = store.getState().auth.loginCredentials;
+    const users = store.getState().auth.signupState.loginCredentials;
     const userExist = Object.keys(users).find((key) => key === email);
     if (userExist && users[email] === password) {
-      console.log("User Exists");
       return true;
     }
   };
 
   const loginUser = (email, password) => {
     const isValidated = compareEmailAndPassword(email, password);
-    console.log(isValidated);
     if (isValidated) {
       try {
-        const currentState = store.getState();
-        console.log(currentState);
-        dispatch(actions.loginUser());
-        console.log(currentState);
+        dispatch(loginCurrentUser(email));
         setTimeout(() => {
           navigate("/destination");
-        }, 1000);
+        }, 100);
       } catch (err) {
-        console.log(err);
+        setErrMessage(err);
       }
     } else {
       setErrMessage("Invalid Email or Password!");
@@ -101,13 +86,7 @@ const Login = () => {
       <div className="h-screen md:flex">
         <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
           <form className="bg-white" onSubmit={handleSubmit}>
-            <h1 className="text-gray-800 font-bold text-2xl mb-1">Login</h1>
-            <p className="text-sm font-normal text-gray-600">
-              email: demo@demo.com
-            </p>
-            <p className="text-sm font-normal text-gray-600 mb-7">
-              password: demo123
-            </p>
+            <h1 className="text-gray-800 font-bold text-2xl mb-7">Login</h1>
             <div
               className={`${
                 errEmail && "border-red-400 focus-visible:border-red-500"
@@ -183,7 +162,7 @@ const Login = () => {
             </p>
             <button
               type="submit"
-              className="block w-full bg-[#486284] mt-4 py-2 rounded-2xl texWhite font-semibold mb-2"
+              className="block w-full bg-[#486284] mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
             >
               Login
             </button>
@@ -197,7 +176,7 @@ const Login = () => {
         </div>
         <div className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr bg-[#486284] i justify-around items-center hidden">
           <div>
-            <h1 className="texWhite font-bold text-4xl text-right font-sans">
+            <h1 className="text-white font-bold text-4xl text-right font-sans">
               Welcome Back!
             </h1>
             <p className="text-white mt-1 text-right">
