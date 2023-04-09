@@ -49,6 +49,7 @@ const Navbar = () => {
       setLoggedInUser(currentUser);
       setIsValidated(true);
     }
+    setIsActive(localStorage.getItem("isActive") === "dark" ? "moon" : "sun");
   }, []);
 
   useEffect(() => {
@@ -97,7 +98,7 @@ const Navbar = () => {
           <div className="hidden md:flex gap-5 items-center bg-[#486284] border-2 border-[#325078]  px-3 py-2 rounded-full text-white">
             <span
               className={`cursor-pointer ${
-                localStorage.isActive === "dark" && "text-yellow-400"
+                isActive === "sun" && "text-yellow-400"
               }`}
               title="light mode"
               onClick={() => setIsActive("sun")}
@@ -106,7 +107,7 @@ const Navbar = () => {
             </span>
             <span
               className={`cursor-pointer ${
-                localStorage.isActive === "light" && "text-blue-400"
+                isActive === "moon" && "text-blue-400"
               }`}
               title="dark mode"
               onClick={() => setIsActive("moon")}
