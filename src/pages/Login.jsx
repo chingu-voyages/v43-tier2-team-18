@@ -1,20 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "../components";
 import { Link, useNavigate } from "react-router-dom";
+
+// working with redux store
+import { useDispatch } from "react-redux";
+import { loginCurrentUser } from "../features/auth/loginUserSlice";
+import { store } from "../app/store";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [Loggedin, setLoggedin] = useState("false");
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // incase of errors
-  const [errEmail, setErrEmail] = useState(false);
-  const [errPassword, setErrPassword] = useState(false);
+  const [errEmail, setErrEmail] = useState("");
+  const [errPassword, setErrPassword] = useState("");
   const [errMessage, setErrMessage] = useState("");
-
-  const demoEmail = "demo@demo.com";
-  const demoPass = "demo123";
 
   const validateEmail = (email) => {
     return (
@@ -35,20 +38,28 @@ const Login = () => {
     setErrPassword(false);
   };
 
-  const isLoggedin = (email, password) => {
-    if (email === demoEmail && password === demoPass) {
-      setLoggedin(true);
-      localStorage.clear();
-      localStorage.setItem("user", email);
-      navigate("/welcome");
-      setTimeout(() => {
-        alert(
-          "Congratulations! You're now logged in! Click 'ok' to be redirected to the travel-guide page"
-        );
-        navigate("/destination");
-      }, 1000);
+  // COMPARE EMAIL AND PASSWORD FOR VALIDATION
+  const compareEmailAndPassword = (email, password) => {
+    const users = store.getState().auth.signupState.loginCredentials;
+    const userExist = Object.keys(users).find((key) => key === email);
+    if (userExist && users[email] === password) {
+      return true;
+    }
+  };
+
+  const loginUser = (email, password) => {
+    const isValidated = compareEmailAndPassword(email, password);
+    if (isValidated) {
+      try {
+        dispatch(loginCurrentUser(email));
+        setTimeout(() => {
+          navigate("/destination");
+        }, 100);
+      } catch (err) {
+        setErrMessage(err);
+      }
     } else {
-      setErrMessage("Invalid Login Credentials!");
+      setErrMessage("Invalid Email or Password!");
     }
   };
 
@@ -56,17 +67,17 @@ const Login = () => {
     e.preventDefault();
 
     if (!email) {
-      setErrEmail(true);
+      setErrEmail("Email field is required");
     } else {
       if (!validateEmail(email)) {
-        setErrEmail(true);
+        setErrEmail("Invalid Email! Please use a valid email.");
       }
     }
     if (!password) {
-      setErrPassword(true);
+      setErrPassword("Password field is required!");
     }
 
-    isLoggedin(email, password);
+    loginUser(email, password);
   };
 
   return (
@@ -75,13 +86,7 @@ const Login = () => {
       <div className="h-screen md:flex">
         <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
           <form className="bg-white" onSubmit={handleSubmit}>
-            <h1 className="text-gray-800 font-bold text-2xl mb-1">Login</h1>
-            <p className="text-sm font-normal text-gray-600">
-              email: demo@demo.com
-            </p>
-            <p className="text-sm font-normal text-gray-600 mb-7">
-              password: demo123
-            </p>
+            <h1 className="text-gray-800 font-bold text-2xl mb-7">Login</h1>
             <div
               className={`${
                 errEmail && "border-red-400 focus-visible:border-red-500"
@@ -97,9 +102,9 @@ const Login = () => {
                 stroke="currentColor"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
                 />
               </svg>
@@ -132,9 +137,9 @@ const Login = () => {
                 fill="currentColor"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
               </svg>
               <input
