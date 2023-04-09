@@ -73,7 +73,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="border-b px-6 md:px-12 lg:px-24 py-3 text-slate-800 dark:text-gray-100  dark:bg-black dark:border-b-slate-600">
+    <nav className="border-b px-6 md:px-12 lg:px-24 py-6 text-slate-800 dark:text-gray-100  dark:bg-black dark:border-b-slate-600">
       <div className="flex justify-between items-center">
         <div>
           <Link to="/">
@@ -94,7 +94,7 @@ const Navbar = () => {
           </Link>
 
           {/* TOGGLE THEME MODE */}
-          <div className="hidden md:flex gap-5 bg-[#486284] border-2 border-[#325078]  px-3 py-2 rounded-full text-white">
+          <div className="hidden md:flex gap-5 items-center bg-[#486284] border-2 border-[#325078]  px-3 py-2 rounded-full text-white">
             <span
               className={`cursor-pointer ${
                 isActive === "sun" && "text-blue-400"
@@ -120,7 +120,7 @@ const Navbar = () => {
         <div
           className={`${
             isOpen ? "grid" : "hidden"
-          } gap-3 z-50 bg-white justify-center absolute top-[160px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black md:text-lg`}
+          } gap-3 z-50 bg-white justify-start absolute top-[160px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black md:text-lg`}
         >
           <Link
             to={!isValidated && "/login"}
@@ -130,7 +130,7 @@ const Navbar = () => {
           </Link>
           <Link
             to={!isValidated && "/signup"}
-            className="px-4 py-2 md:px-5 text-gray-100 bg-[#486284] rounded-3xl hover:translate-y-1 md:hover:translate-y-0 md:hover:scale-105 transition duration-50 ease-in-out w-24 lg:w-32 ml-5 md:ml-0 mb-5 md:mb-0"
+            className="px-6 lg:px-8 py-2 md:px-5 text-gray-100 bg-[#486284] rounded-3xl hover:translate-y-1 md:hover:translate-y-0 md:hover:scale-105 transition duration-50 ease-in-out ml-5 md:ml-4 mb-5 md:mb-0"
             onClick={isValidated && handleLogout}
           >
             {!isValidated ? "Signup" : "Logout"}

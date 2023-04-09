@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 
 function Weather({ destination }) {
+  const { id } = useParams();
   const [position, setPosition] = React.useState({
     latitude: "",
     longitude: "",
@@ -15,8 +17,6 @@ function Weather({ destination }) {
   });
 
   const { latitude, longitude } = position;
-
-  console.log(position);
 
   React.useEffect(() => {
     async function getCoordinates() {
@@ -42,6 +42,7 @@ function Weather({ destination }) {
           `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,precipitation_probability,uv_index&current_weather=true`
         );
         const data = await response.json();
+        console.log(data);
         const { current_weather, hourly, timezone } = data;
         setWeather({
           temperature: current_weather.temperature,
@@ -54,12 +55,12 @@ function Weather({ destination }) {
       }
     }
     getWeather();
-  }, [destination]);
+  }, [id]);
 
   return (
     <div className="p-4 bg-yellow-50 dark:bg-yellow-900 mt-4 rounded-lg">
       <h4 className="font-bold text-2xl mb-4">
-        Weather <TiWeatherPartlySunny className="inline-block" />
+        Weather <TiWeatherPartlySunny className="inline-block -mt-2" />
       </h4>
       <p>
         <span className="font-semibold text-gray-500 dark:text-gray-400">

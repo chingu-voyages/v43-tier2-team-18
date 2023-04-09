@@ -5,7 +5,7 @@ const DestinationCard = ({ destination, index }) => {
   // console.log(props);
   return (
     <Link
-      to={`/${destination.id}`}
+      to={`/destination/${destination.id}`}
       className="scale-100 hover:scale-110 focus:scale-110   transition duration-150 ease-in-out"
     >
       <div
