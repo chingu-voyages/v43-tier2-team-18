@@ -32,7 +32,7 @@ const Navbar = () => {
   function onWindowMatch() {
     if (
       localStorage.isActive === "light" ||
-      (!("isActive" in localStorage) && darkQuery.matches)
+      (!("isActive" in localStorage) && !darkQuery.matches)
     ) {
       element.classList.remove("dark");
     } else {
@@ -57,12 +57,12 @@ const Navbar = () => {
       localStorage.setItem("isActive", "dark");
     }
 
-    if (isActive === "sun") {
+    if (isActive === "sun" || !localStorage.isActive) {
       element.classList.remove("dark");
       localStorage.setItem("isActive", "light");
     }
 
-    if (!isActive) localStorage.removeItem("isActive");
+    // if (!isActive) localStorage.removeItem("isActive");
   }, [isActive]);
 
   const handleLogout = () => {
@@ -97,7 +97,7 @@ const Navbar = () => {
           <div className="hidden md:flex gap-5 items-center bg-[#486284] border-2 border-[#325078]  px-3 py-2 rounded-full text-white">
             <span
               className={`cursor-pointer ${
-                isActive === "sun" && "text-blue-400"
+                localStorage.isActive === "dark" && "text-yellow-400"
               }`}
               title="light mode"
               onClick={() => setIsActive("sun")}
@@ -106,7 +106,7 @@ const Navbar = () => {
             </span>
             <span
               className={`cursor-pointer ${
-                isActive === "moon" && "text-blue-400"
+                localStorage.isActive === "light" && "text-blue-400"
               }`}
               title="dark mode"
               onClick={() => setIsActive("moon")}
