@@ -8,6 +8,10 @@ import BackgroundWithText from "./BackgroundWithText";
 import { travelData } from "../data";
 
 function LandingPageCarousal() {
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <Swiper
       spaceBetween={100}
@@ -25,7 +29,10 @@ function LandingPageCarousal() {
         .filter((_, index) => index > 7)
         .map((obj) => (
           <SwiperSlide key={obj.destination.id}>
-            <Link to={`/destination/${obj.destination.id}`}>
+            <Link
+              to={`/v43-tier2-team-18/destination/${obj.destination.id}`}
+              onClick={scrollToTop}
+            >
               <BackgroundWithText
                 obj={obj.destination}
                 height="70vh"
