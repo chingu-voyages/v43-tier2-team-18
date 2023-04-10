@@ -21,7 +21,7 @@ root.render(
       <PersistGate loading={null} persistor={persistor}>
         <Router>
           <Routes>
-            <Route path="/" element={<App />} />
+            <Route path="/v43-tier2-team-18/" element={<App />} />
             <Route path="/destination/:id" element={<DestinationInfo />} />
             <Route path="/destination" element={<TravelGuide />} />
             <Route path="/login" element={<Login />} />
