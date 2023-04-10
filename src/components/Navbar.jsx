@@ -69,7 +69,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logoutCurrentUser());
     setTimeout(() => {
-      navigate("/");
+      navigate("/v43-tier2-team-18");
     }, 100);
   };
 
@@ -90,7 +90,7 @@ const Navbar = () => {
           <Link to="/v43-tier2-team-18" className={navItemStyles}>
             Home
           </Link>
-          <Link to="/destination" className={navItemStyles}>
+          <Link to="/v43-tier2-team-18/destination" className={navItemStyles}>
             Explore
           </Link>
 
@@ -124,13 +124,13 @@ const Navbar = () => {
           } gap-3 z-50 bg-white justify-start absolute top-[160px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black md:text-lg`}
         >
           <Link
-            to={!isValidated && "/login"}
+            to={!isValidated && "/v43-tier2-team-18/login"}
             className="border-l-2 border-l-transparent px-3 ml-3 py-2 md:py-0 md:hover:py-2 md:ml-0 pt-5 md:pt-0 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600  transition duration-150 ease-in-out dark:hover:text-blue-300"
           >
             {!isValidated ? "Login" : loggedInUser}
           </Link>
           <Link
-            to={!isValidated && "/signup"}
+            to={!isValidated && "/v43-tier2-team-18/signup"}
             className="px-6 lg:px-8 py-2 md:px-5 text-gray-100 bg-[#486284] rounded-3xl hover:translate-y-1 md:hover:translate-y-0 md:hover:scale-105 transition duration-50 ease-in-out ml-5 md:ml-4 mb-5 md:mb-0"
             onClick={isValidated && handleLogout}
           >

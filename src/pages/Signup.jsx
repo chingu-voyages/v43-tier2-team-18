@@ -111,7 +111,7 @@ const Signup = () => {
           );
           dispatch(signupCurrentUser(email));
           setTimeout(() => {
-            navigate("/destination");
+            navigate("/v43-tier2-team-18/destination", { replace: true });
           }, 100);
           console.log("User signed up successfully");
         } else {
@@ -126,8 +126,8 @@ const Signup = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen md:flex">
-        <div className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr bg-[#486284] i justify-around items-center hidden">
+      <div className="h-screen md:flex dark:bg-black dark:text-white">
+        <div className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr bg-[#486284] i justify-around items-center hidden ">
           <div>
             <h1 className="text-white font-bold text-4xl font-sans">
               Let's get you started
@@ -141,9 +141,11 @@ const Signup = () => {
           <div className="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
           <div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
         </div>
-        <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
-          <form className="bg-white" onSubmit={handleSubmit}>
-            <h1 className="text-gray-800 font-bold text-2xl mb-7">Signup</h1>
+        <div className="flex md:w-1/2 justify-center py-10 items-center bg-white dark:bg-black dark:text-white">
+          <form className="" onSubmit={handleSubmit}>
+            <h1 className="text-gray-800 dark:text-gray-200 font-bold text-2xl mb-7">
+              Signup
+            </h1>
             <div
               className={`${
                 errName && "border-red-400 focus-visible:border-red-500 mb-1"
@@ -168,8 +170,8 @@ const Signup = () => {
                 value={name}
                 className={`${
                   errName
-                    ? "border-red-400 focus-visible:border-red-500 outline-none"
-                    : " outline-none border-none"
+                    ? "border-red-400 focus-visible:border-red-500 outline-none "
+                    : " outline-none border-none dark:bg-black dark:text-white"
                 }`}
                 placeholder="Name..."
               />
@@ -208,7 +210,7 @@ const Signup = () => {
                 className={`${
                   errEmail
                     ? "border-red-400 focus-visible:border-red-500 outline-none"
-                    : " outline-none border-none"
+                    : " outline-none border-none dark:bg-black dark:text-white"
                 }`}
                 placeholder="Email Address..."
               />
@@ -246,7 +248,7 @@ const Signup = () => {
                 className={`${
                   errPassword
                     ? "border-red-400 focus-visible:border-red-500 outline-none"
-                    : " outline-none border-none"
+                    : " outline-none border-none dark:bg-black dark:text-white"
                 }`}
                 placeholder="Password..."
               />
@@ -264,7 +266,10 @@ const Signup = () => {
             </button>
             <span className="text-sm ml-2">
               Already have an account?
-              <Link to="/login" className="text-sm ml-2 text-blue-500">
+              <Link
+                to="/v43-tier2-team-18/login"
+                className="text-sm ml-2 text-blue-500"
+              >
                 Login now
               </Link>
             </span>

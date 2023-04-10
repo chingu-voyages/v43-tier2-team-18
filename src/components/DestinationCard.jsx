@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const DestinationCard = ({ destination, index }) => {
-  // console.log(props);
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  }
   return (
     <div
       className={`${
@@ -10,8 +12,9 @@ const DestinationCard = ({ destination, index }) => {
       }   rounded shadow-lg bg-white dark:bg-gray-700 cursor-pointer`}
     >
       <Link
-        to={`/destination/${destination.id}`}
+        to={`/v43-tier2-team-18/destination/${destination.id}`}
         className="scale-100 hover:scale-110 focus:scale-110   transition duration-150 ease-in-out"
+        onClick={scrollToTop}
       >
         <img
           className={`w-full object-cover object-center ${

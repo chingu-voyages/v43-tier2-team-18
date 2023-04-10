@@ -53,7 +53,7 @@ const Login = () => {
       try {
         dispatch(loginCurrentUser(email));
         setTimeout(() => {
-          navigate("/destination");
+          navigate("/v43-tier2-team-18/destination", { replace: true });
         }, 100);
       } catch (err) {
         setErrMessage(err);
@@ -83,10 +83,12 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen md:flex">
-        <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
-          <form className="bg-white" onSubmit={handleSubmit}>
-            <h1 className="text-gray-800 font-bold text-2xl mb-7">Login</h1>
+      <div className="h-screen md:flex dark:bg-black dark:text-white">
+        <div className="flex md:w-1/2 justify-center py-10 items-center bg-white dark:bg-black dark:text-white">
+          <form className="" onSubmit={handleSubmit}>
+            <h1 className="text-gray-800 dark:text-gray-200 font-bold text-2xl mb-7">
+              Login
+            </h1>
             <div
               className={`${
                 errEmail && "border-red-400 focus-visible:border-red-500"
@@ -116,7 +118,7 @@ const Login = () => {
                 className={`${
                   errEmail
                     ? "border-red-400 focus-visible:border-red-500 outline-none"
-                    : " outline-none border-none"
+                    : " outline-none border-none dark:bg-black dark:text-white"
                 }`}
                 placeholder={
                   errEmail ? "Please enter your email..." : "Email Address"
@@ -150,7 +152,7 @@ const Login = () => {
                 className={`${
                   errPassword
                     ? "border-red-400 focus-visible:border-red-500 outline-none"
-                    : " outline-none border-none"
+                    : " outline-none border-none dark:bg-black dark:text-white"
                 }`}
                 placeholder={
                   errPassword ? "Please enter your password..." : "Password"
@@ -168,7 +170,10 @@ const Login = () => {
             </button>
             <span className="text-sm ml-2">
               Don't have an account?
-              <Link to="/signup" className="text-sm ml-2 text-blue-500">
+              <Link
+                to="/v43-tier2-team-18/signup"
+                className="text-sm ml-2 text-blue-500"
+              >
                 Signup now
               </Link>
             </span>

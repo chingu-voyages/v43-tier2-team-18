@@ -13,12 +13,15 @@ const Header = () => {
         </p>
         <div className="flex gap-7 justify-center w-full items-stretch xs:flex-col md:flex-row max-w-xl">
           <Link
-            to="/destination"
+            to="/v43-tier2-team-18/destination"
             className="xs:w-full  px-10 button bg-[#486284] text-white"
           >
             Get started
           </Link>
-          <a href="/#howItWorks" className="xs:w-full px-10 button bg-white">
+          <a
+            href="/v43-tier2-team-18/#howItWorks"
+            className="xs:w-full px-10 button bg-white"
+          >
             Learn more
           </a>
         </div>
