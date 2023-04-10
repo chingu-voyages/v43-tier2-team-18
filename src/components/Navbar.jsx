@@ -69,7 +69,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logoutCurrentUser());
     setTimeout(() => {
-      navigate("/");
+      navigate("/v43-tier2-team-18/");
     }, 100);
   };
 

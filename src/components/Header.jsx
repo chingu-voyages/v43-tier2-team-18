@@ -18,7 +18,7 @@ const Header = () => {
           >
             Get started
           </Link>
-          <a href="/#howItWorks" className="xs:w-full px-10 button bg-white">
+          <a href="/v43-tier2-team-18/#howItWorks" className="xs:w-full px-10 button bg-white">
             Learn more
           </a>
         </div>
