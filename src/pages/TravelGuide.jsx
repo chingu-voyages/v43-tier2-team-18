@@ -17,7 +17,7 @@ export default function TravelGuide() {
         <h2 className="font-bold text-3xl lg:text-4xl pt-8 pb-8 text-center">
           Popular Destinations
         </h2>
-        <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 grid-flow-row-dense">
           {destinationCards}
         </div>
       </section>
