@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 
 function Weather({ destination }) {
-  const { id } = useParams();
   const [position, setPosition] = React.useState({
     latitude: "",
     longitude: "",
@@ -35,7 +34,9 @@ function Weather({ destination }) {
       }
     }
     getCoordinates();
+  }, [destination]);
 
+  React.useEffect(() => {
     async function getWeather() {
       try {
         const response = await fetch(
@@ -55,7 +56,7 @@ function Weather({ destination }) {
       }
     }
     getWeather();
-  }, [id]);
+  }, [latitude, longitude]);
 
   return (
     <div className="p-4 bg-yellow-50 dark:bg-yellow-900 mt-4 rounded-lg">

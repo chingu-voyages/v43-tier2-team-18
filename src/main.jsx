@@ -11,9 +11,7 @@ import { store, persistor } from "./app/store";
 
 import "./index.css";
 
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
 
 root.render(
   <React.StrictMode>
@@ -22,11 +20,17 @@ root.render(
         <Router>
           <Routes>
             <Route path="/v43-tier2-team-18/" element={<App />} />
-            <Route path="/destination/:id" element={<DestinationInfo />} />
-            <Route path="/destination" element={<TravelGuide />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/welcome" element={<Welcome />} />
+            <Route
+              path="/v43-tier2-team-18/destination/:id"
+              element={<DestinationInfo />}
+            />
+            <Route
+              path="/v43-tier2-team-18/destination"
+              element={<TravelGuide />}
+            />
+            <Route path="/v43-tier2-team-18/login" element={<Login />} />
+            <Route path="/v43-tier2-team-18/signup" element={<Signup />} />
+            <Route path="/v43-tier2-team-18/welcome" element={<Welcome />} />
           </Routes>
         </Router>
       </PersistGate>
