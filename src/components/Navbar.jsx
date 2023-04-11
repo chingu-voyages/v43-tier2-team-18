@@ -143,7 +143,11 @@ const Navbar = () => {
               <span>
                 <BsCart4 />
               </span>
-              <span className="flex justify-center items-center absolute top-2 -right-1 bg-red-500 text-white rounded-full w-6 h-6 text-sm text-center">
+              <span
+                className={`${
+                  itemCount > 0 && "bg-red-500"
+                } flex justify-center items-center absolute top-2 -right-1 text-white rounded-full w-6 h-6 text-sm text-center`}
+              >
                 {itemCount}
               </span>
             </div>
