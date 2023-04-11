@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Weather from "./Weather";
+import { useNavigate } from "react-router-dom";
 
 // working with redux store
 import { store } from "../app/store";
@@ -12,6 +13,7 @@ const TabsSection = ({ destination }) => {
   const [successMessage, setSuccessMessage] = useState(false);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const isLoggedin = store.getState().auth.loginState.isLoggedIn;
@@ -23,14 +25,18 @@ const TabsSection = ({ destination }) => {
   }, []);
 
   const handleClick = () => {
-    dispatch(addToFavorites(destination.name));
-    const favorites = store.getState().auth.favoritesState.itemCount;
-    setSuccessMessage(true);
-    setTimeout(() => {
-      setSuccessMessage(false);
-    }, 1000);
-    // console.log(favorites);
-    // dispatch(clearFavorites());
+    if (isValidated) {
+      dispatch(addToFavorites(destination.name));
+      const favorites = store.getState().auth.favoritesState.itemCount;
+      setSuccessMessage(true);
+      setTimeout(() => {
+        setSuccessMessage(false);
+      }, 1000);
+      // console.log(favorites);
+      // dispatch(clearFavorites());
+    } else {
+      navigate("/v43-tier2-team-18/login");
+    }
   };
 
   return (
