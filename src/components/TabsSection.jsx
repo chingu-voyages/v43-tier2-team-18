@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Weather from "./Weather";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 // working with redux store
 import { store } from "../app/store";
@@ -16,6 +16,9 @@ const TabsSection = ({ destination }) => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.pathname;
 
   useEffect(() => {
     const isLoggedin = store.getState().auth.loginState.isLoggedIn;
@@ -34,7 +37,9 @@ const TabsSection = ({ destination }) => {
         setMessage(false);
       }, 1000);
     } else {
-      navigate("/v43-tier2-team-18/login");
+      navigate("/v43-tier2-team-18/login", {
+        state: { message: "You must login first", from: from },
+      });
     }
   };
 
