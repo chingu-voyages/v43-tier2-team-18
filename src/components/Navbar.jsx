@@ -168,7 +168,7 @@ const Navbar = () => {
           <div className="flex gap-3 bg-[#486284] border-2 border-[#325078]  px-2 py-1 rounded-full text-white">
             <span
               className={`cursor-pointer ${
-                isActive === "sun" && "text-blue-400"
+                isActive === "sun" && "text-yellow-400"
               }`}
               title="light mode"
               onClick={() => setIsActive("sun")}

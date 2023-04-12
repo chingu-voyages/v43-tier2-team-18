@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "../components";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 // working with redux store
 import { useDispatch } from "react-redux";
@@ -13,6 +13,9 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  console.log(location);
 
   // incase of errors
   const [errEmail, setErrEmail] = useState("");
@@ -53,7 +56,9 @@ const Login = () => {
       try {
         dispatch(loginCurrentUser(email));
         setTimeout(() => {
-          navigate("/v43-tier2-team-18/destination", { replace: true });
+          location.state?.from
+            ? navigate(location.state.from, { replace: true })
+            : navigate("/v43-tier2-team-18/destination", { replace: true });
         }, 100);
       } catch (err) {
         setErrMessage(err);
@@ -89,6 +94,13 @@ const Login = () => {
             <h1 className="text-gray-800 dark:text-gray-200 font-bold text-2xl mb-7">
               Login
             </h1>
+            {location.state?.message ? (
+              <p className="text-red-600 mb-4 text-lg">
+                {location.state.message}
+              </p>
+            ) : (
+              ""
+            )}
             <div
               className={`${
                 errEmail && "border-red-400 focus-visible:border-red-500"
