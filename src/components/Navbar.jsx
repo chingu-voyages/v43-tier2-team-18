@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import { Cart } from "./";
 
 // ICONS
 import { BsSunFill, BsMoonFill, BsCart4 } from "react-icons/bs";
@@ -22,6 +23,7 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState("");
   const [isValidated, setIsValidated] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState("");
+  const [cart, setCart] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -69,9 +71,8 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logoutCurrentUser());
-    dispatch();
     setTimeout(() => {
-      navigate("/v43-tier2-team-18");
+      navigate("/v43-tier2-team-18/");
     }, 100);
   };
 
@@ -119,7 +120,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* LOGIN & SIGNUP */}
+        {/* LOGIN, SIGNUP & CART */}
         <div
           className={`${
             isOpen ? "grid" : "hidden"
@@ -139,7 +140,10 @@ const Navbar = () => {
             {!isValidated ? "Signup" : "Logout"}
           </Link>
           {isValidated && (
-            <div className="relative text-2xl w-8 cursor-pointer">
+            <div
+              className="relative text-2xl w-8 cursor-pointer"
+              onClick={() => setCart(!cart)}
+            >
               <span>
                 <BsCart4 />
               </span>
@@ -153,6 +157,9 @@ const Navbar = () => {
             </div>
           )}
         </div>
+
+        {/* FAVORITES CART */}
+        {cart && <Cart />}
 
         {/*--- MOBILE VIEW --- */}
 

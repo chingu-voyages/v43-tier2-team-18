@@ -9,8 +9,20 @@ const userFavoritesSlice = createSlice({
   reducers: {
     // ...
     addToFavorites(state, action) {
-      state.favorites.push(action.payload);
-      state.itemCount += 1;
+      if (!state.favorites.includes(action.payload)) {
+        state.favorites.push(action.payload);
+        state.itemCount += 1;
+      }
+    },
+
+    removeFromFavorites(state, action) {
+      const indexToRemove = state.favorites.findIndex(
+        (favorite) => favorite === action.payload
+      );
+      if (indexToRemove !== -1) {
+        state.favorites.splice(indexToRemove, 1);
+        state.itemCount -= 1;
+      }
     },
 
     clearFavorites(state) {
@@ -20,5 +32,6 @@ const userFavoritesSlice = createSlice({
   },
 });
 
-export const { addToFavorites, clearFavorites } = userFavoritesSlice.actions;
+export const { addToFavorites, removeFromFavorites, clearFavorites } =
+  userFavoritesSlice.actions;
 export default userFavoritesSlice.reducer;
