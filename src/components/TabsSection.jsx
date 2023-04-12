@@ -17,7 +17,7 @@ const TabsSection = ({ destination }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-//to redirect user back to the DestinationInfo page
+  //to redirect user back to the DestinationInfo page
   const from = location.pathname;
 
   useEffect(() => {
@@ -72,9 +72,7 @@ const TabsSection = ({ destination }) => {
 
         {message && (
           <p className="px-2 py-1 bg-green-100 text-green-500 mt-2">
-            {favorites.includes(destination.name)
-              ? "Already in Favorites!"
-              : "Successfully added!"}
+            Successfully added!
           </p>
         )}
       </div>
