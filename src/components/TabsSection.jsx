@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 // working with redux store
 import { store } from "../app/store";
 import { addToFavorites, clearFavorites } from "../features/userFavoritesSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const TabsSection = ({ destination }) => {
   const [isValidated, setIsValidated] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState("");
   const [message, setMessage] = useState(false);
+  const favorites = useSelector((state) => state.auth.favoritesState.favorites);
+
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -65,7 +67,9 @@ const TabsSection = ({ destination }) => {
 
         {message && (
           <p className="px-2 py-1 bg-green-100 text-green-500 mt-2">
-            Successfully added!
+            {favorites.includes(destination.name)
+              ? "Already in Favorites!"
+              : "Successfully added!"}
           </p>
         )}
       </div>
