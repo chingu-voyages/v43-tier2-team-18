@@ -13,11 +13,11 @@ const TabsSection = ({ destination }) => {
   const [message, setMessage] = useState(false);
   const favorites = useSelector((state) => state.auth.favoritesState.favorites);
 
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
+//to redirect user back to the DestinationInfo page
   const from = location.pathname;
 
   useEffect(() => {
