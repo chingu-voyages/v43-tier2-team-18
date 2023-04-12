@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 const TabsSection = ({ destination }) => {
   const [isValidated, setIsValidated] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState("");
-  const [successMessage, setSuccessMessage] = useState(false);
+  const [message, setMessage] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,13 +27,10 @@ const TabsSection = ({ destination }) => {
   const handleClick = () => {
     if (isValidated) {
       dispatch(addToFavorites(destination.name));
-      const favorites = store.getState().auth.favoritesState.itemCount;
-      setSuccessMessage(true);
+      setMessage(true);
       setTimeout(() => {
-        setSuccessMessage(false);
+        setMessage(false);
       }, 1000);
-      // console.log(favorites);
-      // dispatch(clearFavorites());
     } else {
       navigate("/v43-tier2-team-18/login");
     }
@@ -66,7 +63,7 @@ const TabsSection = ({ destination }) => {
           Add to favorites
         </button>
 
-        {successMessage && (
+        {message && (
           <p className="px-2 py-1 bg-green-100 text-green-500 mt-2">
             Successfully added!
           </p>
