@@ -35,12 +35,15 @@
   .mask-image {
     mask-image: linear-gradient(black, transparent);
   }
-  .grid-layout {
+  /* .grid-layout {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-content: center;
   }
   .first-card {
     grid-column: span 2;
     border: 4px solid gray;
+  } */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
