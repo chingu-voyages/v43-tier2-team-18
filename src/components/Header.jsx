@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="bg-heroBg bg-cover bg-gray-300 bg-blend-multiply w-full h-screen">
-      <div className="z-20 flex flex-col justify-center items-start gap-8 p-10 max-w-3xl w-full h-screen">
+    <div className="bg-heroBg bg-cover xs:px-6 md:px-12 lg:px-24 bg-gray-300 bg-blend-multiply w-full h-screen">
+      <div className="z-20 flex flex-col justify-center items-start gap-8 max-w-3xl w-full h-screen">
         <h1 className="xs:text-center sm:text-left text-shadow xs:text-[45px] sm:text-6xl text-7xl lg:text-8xl font-bold text-white">
           Experience the adventure of a lifetime
         </h1>
