@@ -12,19 +12,11 @@ const TabsSection = ({ destination }) => {
   const [loggedInUser, setLoggedInUser] = useState("");
   const [message, setMessage] = useState(false);
   const favorites = useSelector((state) => state.auth.favoritesState.favorites);
-<<<<<<< HEAD
-=======
-
->>>>>>> de09a114dec870c0e9968a3acadc8059c513bc13
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
-<<<<<<< HEAD
-  console.log(location);
-=======
->>>>>>> de09a114dec870c0e9968a3acadc8059c513bc13
   const from = location.pathname;
 
   useEffect(() => {
