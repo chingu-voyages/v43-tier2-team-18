@@ -17,7 +17,7 @@ const TabsSection = ({ destination }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location);
+//to redirect user back to the DestinationInfo page
   const from = location.pathname;
 
   useEffect(() => {
