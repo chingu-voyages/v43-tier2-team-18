@@ -30,7 +30,7 @@ function Weather({ destination }) {
           longitude: parseFloat(data[0].lon),
         });
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     }
     getCoordinates();
@@ -43,7 +43,7 @@ function Weather({ destination }) {
           `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,precipitation_probability,uv_index&current_weather=true`
         );
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         const { current_weather, hourly, timezone } = data;
         setWeather({
           temperature: current_weather.temperature,
@@ -52,7 +52,7 @@ function Weather({ destination }) {
           timezone: timezone,
         });
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     }
     getWeather();

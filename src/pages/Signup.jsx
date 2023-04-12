@@ -8,8 +8,8 @@ import { signupNewUser, clearValue } from "../features/auth/authSlice";
 import {
   signupCurrentUser,
   clearCurrentUserValue,
-  loginCurrentUser,
 } from "../features/auth/loginUserSlice";
+import { clearFavorites } from "../features/userFavoritesSlice";
 import { store } from "../app/store";
 
 const Signup = () => {
@@ -102,6 +102,7 @@ const Signup = () => {
       try {
         const result = emailExists(email);
         if (result) {
+          dispatch(clearFavorites());
           dispatch(
             signupNewUser({
               name,
@@ -113,7 +114,7 @@ const Signup = () => {
           setTimeout(() => {
             navigate("/v43-tier2-team-18/destination", { replace: true });
           }, 100);
-          console.log("User signed up successfully");
+          // console.log("User signed up successfully");
         } else {
           setErrEmail("Email already exists!");
         }

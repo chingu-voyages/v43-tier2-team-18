@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import { Cart } from "./";
 
 // ICONS
-import { BsSunFill, BsMoonFill } from "react-icons/bs";
+import { BsSunFill, BsMoonFill, BsCart4 } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 
@@ -11,6 +12,7 @@ import { FiMenu } from "react-icons/fi";
 import { store } from "../app/store";
 import { useDispatch } from "react-redux";
 import { logoutCurrentUser } from "../features/auth/loginUserSlice";
+import { useSelector } from "react-redux";
 
 const navItemStyles = `
   border-l-2 border-l-transparent px-3 ml-3 md:px-0 hover:border-l-blue-600 md:border-l-0  hover:text-blue-600 py-2 transition duration-150 ease-in-out dark:hover:text-blue-300
@@ -21,6 +23,7 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState("");
   const [isValidated, setIsValidated] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState("");
+  const [cart, setCart] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -49,7 +52,6 @@ const Navbar = () => {
       setLoggedInUser(currentUser);
       setIsValidated(true);
     }
-    setIsActive(localStorage.getItem("isActive") === "dark" ? "moon" : "sun");
   }, []);
 
   useEffect(() => {
@@ -62,14 +64,15 @@ const Navbar = () => {
       element.classList.remove("dark");
       localStorage.setItem("isActive", "light");
     }
-
-    // if (!isActive) localStorage.removeItem("isActive");
   }, [isActive]);
+
+  const itemCount = useSelector((state) => state.auth.favoritesState.itemCount);
+  // console.log("ItemsCount:" + itemCount);
 
   const handleLogout = () => {
     dispatch(logoutCurrentUser());
     setTimeout(() => {
-      navigate("/v43-tier2-team-18");
+      navigate("/v43-tier2-team-18/");
     }, 100);
   };
 
@@ -117,7 +120,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* LOGIN & SIGNUP */}
+        {/* LOGIN, SIGNUP & CART */}
         <div
           className={`${
             isOpen ? "grid" : "hidden"
@@ -136,7 +139,27 @@ const Navbar = () => {
           >
             {!isValidated ? "Signup" : "Logout"}
           </Link>
+          {isValidated && (
+            <div
+              className="relative text-2xl w-8 cursor-pointer"
+              onClick={() => setCart(!cart)}
+            >
+              <span>
+                <BsCart4 />
+              </span>
+              <span
+                className={`${
+                  itemCount > 0 && "bg-red-500"
+                } flex justify-center items-center absolute top-2 -right-1 text-white rounded-full w-6 h-6 text-sm text-center`}
+              >
+                {itemCount}
+              </span>
+            </div>
+          )}
         </div>
+
+        {/* FAVORITES CART */}
+        {cart && <Cart />}
 
         {/*--- MOBILE VIEW --- */}
 
