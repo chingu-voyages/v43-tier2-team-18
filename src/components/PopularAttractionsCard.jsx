@@ -31,13 +31,13 @@ function PopularAttractionsCard({ attraction }) {
         overlayClassName="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-40"
       >
         <img
-          className="w-full h-[200px] border-t border-transparent rounded-t-xl"
+          className="w-full h-[250px] lg:h-[300px] object-cover border-t border-transparent rounded-t-xl"
           src={attraction.images}
         />
-        <h4 className="my-2 mx-4 font-semibold  text-xl">
+        <h4 className="my-2 font-semibold  text-xl">
           {attraction.name}
         </h4>
-        <p className="font-light text-sm m-4 mt-0">{attraction.description}</p>
+        <p className="font-light text-sm my-4 mt-0">{attraction.description}</p>
         <button
           onClick={toggleModal}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
