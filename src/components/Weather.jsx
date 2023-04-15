@@ -59,7 +59,7 @@ function Weather({ destination }) {
   }, [latitude, longitude]);
 
   return (
-    <div className="p-4 bg-yellow-50 dark:bg-yellow-900 mt-4 rounded-lg">
+    <div className="p-4 bg-yellow-50 dark:bg-zinc-800 mt-4 rounded-lg">
       <h4 className="font-bold text-2xl mb-4">
         Weather <TiWeatherPartlySunny className="inline-block -mt-2" />
       </h4>
