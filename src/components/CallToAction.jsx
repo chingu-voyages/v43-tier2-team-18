@@ -15,8 +15,8 @@ export default function CallToAction() {
         </p>
 
         <Link
-          to="/destination"
-          className="block mt-8 px-10 button bg-[#486284] text-white max-w-xl mx-auto"
+          to="/v43-tier2-team-18/destination"
+          className="block mt-8 px-10 button bg-[#486284] text-white max-w-md mx-auto"
         >
           <span className="inline-block mx-auto">Get started</span>
         </Link>
