@@ -30,7 +30,8 @@ The following features are available on the Odyssey website:
 
 ## Getting Started
 
-To get started with Odyssey, kindly click this [link](https://v43-tier2-team-18.netlify.app) or follow these steps to clone it locally on your machine:
+To get started with Odyssey, kindly click this [link](https://chingu-voyages.github.io/v43-tier2-team-18/
+) or follow these steps to clone it locally on your machine:
 
 1. Clone the project repository.
 2. Install the required dependencies using `npm install`.
