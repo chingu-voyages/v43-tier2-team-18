@@ -77,7 +77,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="border-b px-6 md:px-12 lg:px-24 py-6 text-slate-800 dark:text-gray-100  dark:bg-black dark:border-b-slate-600">
+    <nav className="border-b px-6 md:px-12 lg:px-24 py-2 text-slate-800 dark:text-gray-100  dark:bg-[#1b1b1b] dark:border-b-slate-600">
       <div className="flex justify-between items-center">
         <div>
           <Link to="/v43-tier2-team-18">
@@ -88,7 +88,7 @@ const Navbar = () => {
         <div
           className={`${
             isOpen ? "grid" : "hidden"
-          } z-50 bg-white absolute top-20 left-0 gap-3 md:flex w-full md:w-fit md:static md:gap-8 text-sm md:text-lg dark:bg-black `}
+          } z-50 bg-white absolute top-20 left-0 gap-3 md:flex w-full md:w-fit md:static md:gap-8 text-sm md:text-lg dark:bg-[#1b1b1b] `}
         >
           <Link to="/v43-tier2-team-18" className={navItemStyles}>
             Home
@@ -124,7 +124,7 @@ const Navbar = () => {
         <div
           className={`${
             isOpen ? "grid" : "hidden"
-          } gap-3 z-50 bg-white justify-start absolute top-[160px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-black md:text-lg`}
+          } gap-3 z-50 bg-white justify-start absolute top-[160px] left-0 w-full md:w-fit md:flex md:static items-center md:gap-2 text-sm dark:bg-[#1b1b1b] md:text-lg`}
         >
           <Link
             to={!isValidated && "/v43-tier2-team-18/login"}

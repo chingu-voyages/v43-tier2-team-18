@@ -43,7 +43,7 @@ const TabsSection = ({ destination }) => {
   };
 
   return (
-    <section className="flex flex-col-reverse md:px-12 lg:px-24 md:flex-row xs:grid-cols-1 md:grid-cols-6 gap-8 px-6 py-10 mx-auto max-w-6xl text-gray-800 dark:bg-black dark:text-gray-100">
+    <section className="flex flex-col-reverse md:px-12 lg:px-24 md:flex-row xs:grid-cols-1 md:grid-cols-6 gap-8 px-6 py-10 mx-auto max-w-6xl text-gray-800 dark:bg-zinc-800 dark:text-gray-300">
       <div className="col-span-3 text-left  md:text-lg">
         <h3 className="py-2 font-semibold text-2xl lg:text-3xl">
           Culture and History
@@ -59,11 +59,11 @@ const TabsSection = ({ destination }) => {
           ))}
         </div>
       </div>
-      <div className="min-w-[250px] md:min-w-[300px] p-8 w-full bg-blue-50 text-center dark:bg-blue-900 rounded-lg text-xl">
+      <div className="min-w-[250px] md:min-w-[300px] p-8 w-full bg-blue-50 text-center dark:text-gray-300 dark:bg-zinc-900 rounded-lg text-xl">
         <p className="text-left">{destination.description}</p>
         <Weather destination={destination} />
         <button
-          className="px-5 py-3 bg-blue-600 text-white rounded-xl mt-5"
+          className="px-5 py-3 bg-green-700 text-white rounded-xl mt-5"
           onClick={handleClick}
         >
           Add to favorites

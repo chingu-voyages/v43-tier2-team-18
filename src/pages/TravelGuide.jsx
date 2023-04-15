@@ -50,10 +50,8 @@ export default function TravelGuide() {
     <div>
       <Navbar />
 
-      {/* Popular Destinations(JIRA TASK NAME) */}
-
       {/* Destination destinations(JIRA TASK NAME) */}
-      <section className="p-8 md:px-12 lg:px-24 dark:bg-black dark:text-white">
+      <section className="p-8 md:px-12 lg:px-24 bg-gray-100 dark:bg-zinc-800 dark:text-white">
         <h2 className="font-bold text-3xl lg:text-4xl pt-8 pb-8 text-center">
           Popular Destinations
         </h2>
