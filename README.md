@@ -1,29 +1,62 @@
-# Welcome to V43-TIER2-TEAM-18
+# Odyssey
 
-Hello team, welcome to V43-TIER2-TEAM-18! We're excited to have you on board.
+Odyssey is a website that allows users to explore different countries and get information about their next travel destination. The website presents users with beautiful sceneries of popular attractions in each country, as well as information about the history, culture, and weather of a specific destination. This project is inspired by Chingu.
 
-## Project Overview
+## Purpose
 
-This project is built using Vite and styled with Tailwind. The entire project has been configured to have a "6rem" padding on the horizontal axis just to ease the development process, so please try not to manipulate those.
+The purpose of Odyssey is to provide users with an easy-to-use website that helps them explore different countries and find their next travel destination. The website is designed to be both visually appealing and informative, providing users with a range of information about each country, including popular attractions, historical and cultural information, and weather forecasts.
 
+## Technologies Used
+
+Odyssey was developed using the following technologies:
+
+- ReactJs
+- TailwindCSS
+- Weather API
+- Redux Toolkit
+- Redux Persist
+- React-Redux
+- React-Icons
+- React-Router-Dom
+- SwiperJS
+
+## Features
+
+The following features are available on the Odyssey website:
+
+- User authentication (signup and login)
+- Add a destination to "Favorites" list
+- Client-side and mock server-side validation
 
 ## Getting Started
 
-Here are the basic steps to run the project:
+To get started with Odyssey, kindly click this [link](https://v43-tier2-team-18.netlify.app) or follow these steps to clone it locally on your machine:
 
-1. Clone the repository `git clone https://github.com/chingu-voyages/v43-tier2-team-18.git`.
-2. Run `npm install` to install all the necessary dependencies.
-3. Run `npm run dev` to start the development server.
-4. Open your browser and navigate to `http://localhost:5173`.
+1. Clone the project repository.
+2. Install the required dependencies using `npm install`.
+3. Run the project using `npm start`.
 
-That's it! You should now be able to see the project running locally on your machine.
+## Teams
+
+Odyssey was developed by the following team:
+
+- [Daniela](https://github.com/DanielaKuester) & [Anastasia](https://www.linkedin.com/in/anastasiaburyak/) - Project Managers
+- [Atom](https://github.com/NureniJamiu), [Aksh](https://github.com/akshkin), [Maiko](https://github.com/MaikoCode), [Hamdi](https://github.com/hamdi4-beep) and [Carexo](https://github.com/Carexo)  - Developers
 
 ## Contributing
 
-We encourage all team members to contribute to the project. If you have any ideas or suggestions, please don't hesitate to share them with the team.
+We welcome contributions to Odyssey! To contribute, please follow these guidelines:
 
-Before making any changes to the codebase, please create a new branch with a descriptive name (e.g., `feature/add-login-page`). Once you have made your changes, create a pull request and request a review from another team member.
+1. Fork the project repository.
+2. Make your changes and commit them to a new branch.
+3. Submit a pull request with a detailed description of your changes.
 
-## Conclusion
+Please note that all contributions must adhere to our coding standards, and must pass our testing and review processes.
 
-We hope everyone finds this project exciting and engaging. If you have any questions or concerns, please reach out to the project lead or a team member for assistance. Happy coding!
+## Credits
+
+We would also like to acknowledge the following resources and libraries that were used in the development of Odyssey:
+
+- Chingu - For providing inspiration for this project.
+- Weather API - For providing weather data for each country.
+- Redux Toolkit, Redux Persist, React-Redux, React-Icons, React-Router-Dom, and SwiperJS - For providing useful tools and libraries for React development.
