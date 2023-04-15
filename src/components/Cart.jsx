@@ -13,9 +13,9 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="absolute right-8 top-24 bg-gray-200 text-zinc-800 w-56 rounded-lg z-50">
+    <div className="absolute right-8 top-16 bg-gray-200 text-zinc-800 w-56 rounded-lg z-50">
       <ul>
-        {/* CHANGE THE FAVORITES CART TO BE A SET INSTEAD OF A LIST */}
+        {/* CHANGE THE FAVORITES CART TO BE A SET IN1EAD OF A LIST */}
         {favorites.length <= 0 && (
           <li className="py-2 px-3 text-red-400 bg-red-50 rounded-lg">
             Favorites is currently empty!
