@@ -22,8 +22,8 @@ const features = [
 
 function HowItWorks() {
   return (
-    <div className="p-8 dark:bg-black " id="howItWorks">
-      <h2 className="text-center lg:text-5xl xs:text-4xl font-bold text-gray-900 md:mb-16  dark:text-white">
+    <div className="p-8 dark:bg-zinc-800 " id="howItWorks">
+      <h2 className="text-center lg:text-5xl xs:text-4xl font-bold text-gray-800 md:mb-16  dark:text-white">
         How it Works
       </h2>
       {features.map((feature) => (
@@ -37,7 +37,7 @@ function HowItWorks() {
             <h3 className="xs:text-center sm:text-3xl md:text-left lg:text-4xl font-semibold mb-8">
               {feature.title}
             </h3>
-            <p className="xs:mb-8 text-lg lg:text-xl font-light text-gray-600 dark:text-white">
+            <p className="xs:mb-8 text-lg lg:text-xl text-gray-600 dark:text-white">
               {feature.text}
             </p>
           </div>
