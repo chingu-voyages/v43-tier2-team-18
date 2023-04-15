@@ -13,7 +13,7 @@ const DestinationInfo = () => {
   const { destination } = travelData.find((item) => item.destination.id === id);
 
   return (
-    <div className="dark:bg-black dark:text-white">
+    <div className="dark:bg-zinc-800 dark:text-white">
       <Navbar />
       <SwiperHero destination={destination} />
       <TabsSection destination={destination} />
