@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import App from "./App";
-import { DestinationInfo, Login, Signup, Welcome, TravelGuide } from "./pages";
+import { DestinationInfo, Login, Signup, TravelGuide } from "./pages";
 
 // store
 import { Provider } from "react-redux";
@@ -30,7 +30,6 @@ root.render(
             />
             <Route path="/v43-tier2-team-18/login" element={<Login />} />
             <Route path="/v43-tier2-team-18/signup" element={<Signup />} />
-            <Route path="/v43-tier2-team-18/welcome" element={<Welcome />} />
           </Routes>
         </Router>
       </PersistGate>
