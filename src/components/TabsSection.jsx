@@ -71,9 +71,7 @@ const TabsSection = ({ destination }) => {
 
         {message && (
           <p className="px-2 py-1 bg-green-100 text-green-500 mt-2">
-            {favorites.includes(destination.name)
-              ? "Already in Favorites!"
-              : "Successfully added!"}
+            Successfully added!
           </p>
         )}
       </div>
