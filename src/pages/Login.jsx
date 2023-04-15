@@ -15,7 +15,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  console.log(location);
+  // console.log(location);
 
   // incase of errors
   const [errEmail, setErrEmail] = useState("");
@@ -88,8 +88,8 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen md:flex dark:bg-black dark:text-white">
-        <div className="flex md:w-1/2 justify-center py-10 items-center bg-white dark:bg-black dark:text-white">
+      <div className="h-screen md:flex dark:bg-zinc-800 dark:text-white">
+        <div className="flex md:w-1/2 justify-center py-10 items-center bg-white dark:bg-zinc-800 dark:text-white">
           <form className="" onSubmit={handleSubmit}>
             <h1 className="text-gray-800 dark:text-gray-200 font-bold text-2xl mb-7">
               Login
@@ -130,7 +130,7 @@ const Login = () => {
                 className={`${
                   errEmail
                     ? "border-red-400 focus-visible:border-red-500 outline-none"
-                    : " outline-none border-none dark:bg-black dark:text-white"
+                    : " outline-none border-none dark:bg-zinc-800 dark:text-white"
                 }`}
                 placeholder={
                   errEmail ? "Please enter your email..." : "Email Address"
@@ -164,7 +164,7 @@ const Login = () => {
                 className={`${
                   errPassword
                     ? "border-red-400 focus-visible:border-red-500 outline-none"
-                    : " outline-none border-none dark:bg-black dark:text-white"
+                    : " outline-none border-none dark:bg-zinc-800 dark:text-white"
                 }`}
                 placeholder={
                   errPassword ? "Please enter your password..." : "Password"
